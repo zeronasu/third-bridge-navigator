@@ -101,7 +101,7 @@
     <!-- ================= VIEW 1: DEPARTMENT MAP ================= -->
     <main id="view-dept" class="space-y-5">
 
-    <!-- Step 1: Keyword Filter Bar -->
+    <!-- Step 1: Keyword Filter Bar (Restored Exactly to Original UI Screenshot) -->
     <section class="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-200">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -115,7 +115,7 @@
         </button>
       </div>
 
-      <!-- Filter Buttons -->
+      <!-- Filter Buttons (Exact wording, colors & badge styling from screenshot) -->
       <div class="flex flex-wrap gap-2">
         <button onclick="filterKeyword('data-connect')" class="kw-btn px-3 py-1.5 rounded-xl text-xs md:text-sm font-extrabold border-2 border-indigo-200 bg-indigo-50 text-indigo-900 hover:bg-indigo-100 transition active:scale-95">
           🔗 データ連携・統合 (インテグレーション)
@@ -156,7 +156,7 @@
       </div>
     </section>
 
-    <!-- Internal vs. Market Data Analytics Guidance Box -->
+    <!-- Internal vs. Market Data Analytics Guidance Box (HIDDEN BY DEFAULT -> Shows ONLY when '売上データ分析 (データアナリティクス)' is clicked) -->
     <section id="data-analytics-guide" class="hidden bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl p-4 md:p-5 shadow-sm border border-indigo-700">
       <div class="flex items-center gap-2 mb-2">
         <span class="text-xl">📊</span>
@@ -224,10 +224,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           <!-- DX推進部 -->
-          <div data-id="dx" id="card-dx" onclick="focusDeptCard('dx', 'dx-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm cursor-pointer hover:border-indigo-400 transition flex flex-col justify-between self-start">
+          <div data-id="dx" id="card-dx" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm hover:border-indigo-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('dx', 'dx-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">🚀</span>
                   <div>
@@ -246,7 +246,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('dx', 'dx-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('dx', 'dx-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -309,10 +309,10 @@
           </div>
 
           <!-- 情報システム部 -->
-          <div data-id="it" id="card-it" onclick="focusDeptCard('it', 'it-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm cursor-pointer hover:border-indigo-400 transition flex flex-col justify-between self-start">
+          <div data-id="it" id="card-it" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm hover:border-indigo-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('it', 'it-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">💻</span>
                   <div>
@@ -331,7 +331,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('it', 'it-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('it', 'it-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -428,10 +428,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
 
           <!-- 1. 営業部門（セールス） -->
-          <div data-id="sales-dept" id="card-sales-dept" onclick="focusDeptCard('sales-dept', 'sales-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm cursor-pointer hover:border-emerald-400 transition flex flex-col justify-between self-start">
+          <div data-id="sales-dept" id="card-sales-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm hover:border-emerald-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('sales-dept', 'sales-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">🗣</span>
                   <div>
@@ -449,7 +449,7 @@
               </div>
             </div>
 
-            <button onclick="focusDeptCard('sales-dept', 'sales-deep', event)" class="mt-3 w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('sales-dept', 'sales-deep', event)" class="mt-3 w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -517,10 +517,10 @@
           </div>
 
           <!-- 2. マーケティング部門 -->
-          <div data-id="marketing-dept" id="card-marketing-dept" onclick="focusDeptCard('marketing-dept', 'mkt-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-teal-200 shadow-sm cursor-pointer hover:border-teal-400 transition flex flex-col justify-between self-start">
+          <div data-id="marketing-dept" id="card-marketing-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-teal-200 shadow-sm hover:border-teal-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('marketing-dept', 'mkt-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">📣</span>
                   <div>
@@ -538,7 +538,7 @@
               </div>
             </div>
 
-            <button onclick="focusDeptCard('marketing-dept', 'mkt-deep', event)" class="mt-3 w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('marketing-dept', 'mkt-deep', event)" class="mt-3 w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -595,10 +595,10 @@
           </div>
 
           <!-- 3. 商品企画・マーチャンダイジング部門（MD） -->
-          <div data-id="md-dept" onclick="focusDeptCard('md-dept', 'md-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-pink-200 shadow-sm cursor-pointer hover:border-pink-400 transition flex flex-col justify-between self-start">
+          <div data-id="md-dept" id="card-md-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-pink-200 shadow-sm hover:border-pink-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('md-dept', 'md-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">🛍</span>
                   <div>
@@ -616,7 +616,7 @@
               </div>
             </div>
 
-            <button onclick="focusDeptCard('md-dept', 'md-deep', event)" class="mt-3 w-full py-2 bg-pink-600 hover:bg-pink-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('md-dept', 'md-deep', event)" class="mt-3 w-full py-2 bg-pink-600 hover:bg-pink-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -677,10 +677,10 @@
           </div>
 
           <!-- 4. 営業企画・データアナリティクス部門（RevOps） -->
-          <div data-id="analytics-dept" id="card-analytics-dept" onclick="focusDeptCard('analytics-dept', 'analytics-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm cursor-pointer hover:border-cyan-400 transition flex flex-col justify-between self-start">
+          <div data-id="analytics-dept" id="card-analytics-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm hover:border-cyan-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('analytics-dept', 'analytics-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">📊</span>
                   <div>
@@ -698,7 +698,7 @@
               </div>
             </div>
 
-            <button onclick="focusDeptCard('analytics-dept', 'analytics-deep', event)" class="mt-3 w-full py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('analytics-dept', 'analytics-deep', event)" class="mt-3 w-full py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -771,10 +771,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
           <!-- 生産技術部 -->
-          <div data-id="seigi" onclick="focusDeptCard('seigi', 'seigi-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-orange-200 shadow-sm cursor-pointer hover:border-orange-400 transition flex flex-col justify-between self-start">
+          <div data-id="seigi" id="card-seigi" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-orange-200 shadow-sm hover:border-orange-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('seigi', 'seigi-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">⚙️</span>
                   <div>
@@ -793,7 +793,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('seigi', 'seigi-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('seigi', 'seigi-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -855,10 +855,10 @@
           </div>
 
           <!-- 製造部 -->
-          <div data-id="seizo" onclick="focusDeptCard('seizo', 'seizo-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-orange-200 shadow-sm cursor-pointer hover:border-orange-400 transition flex flex-col justify-between self-start">
+          <div data-id="seizo" id="card-seizo" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-orange-200 shadow-sm hover:border-orange-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('seizo', 'seizo-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">🏭</span>
                   <div>
@@ -877,7 +877,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('seizo', 'seizo-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('seizo', 'seizo-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -938,10 +938,10 @@
           </div>
 
           <!-- 品質管理・保証 -->
-          <div data-id="qc" onclick="focusDeptCard('qc', 'qc-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-rose-200 shadow-sm cursor-pointer hover:border-rose-400 transition flex flex-col justify-between self-start">
+          <div data-id="qc" id="card-qc" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-rose-200 shadow-sm hover:border-rose-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('qc', 'qc-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">🔍</span>
                   <div>
@@ -960,7 +960,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('qc', 'qc-deep', event)" class="mt-3 w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('qc', 'qc-deep', event)" class="mt-3 w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1032,10 +1032,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
           <!-- 調達・購買部（直接材 vs 間接材） -->
-          <div data-id="procurement" onclick="focusDeptCard('procurement', 'proc-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
+          <div data-id="procurement" id="card-procurement" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('procurement', 'proc-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">🛒</span>
                   <div>
@@ -1054,7 +1054,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('procurement', 'proc-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('procurement', 'proc-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1111,10 +1111,10 @@
           </div>
 
           <!-- 物流 / SCM / Demand Planning -->
-          <div data-id="scm" onclick="focusDeptCard('scm', 'scm-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
+          <div data-id="scm" id="card-scm" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('scm', 'scm-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">📦</span>
                   <div>
@@ -1133,7 +1133,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('scm', 'scm-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('scm', 'scm-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1190,10 +1190,10 @@
           </div>
 
           <!-- オペレーション部 (Operations / Ops) -->
-          <div data-id="operations" onclick="focusDeptCard('operations', 'ops-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm cursor-pointer hover:border-amber-400 transition flex flex-col justify-between self-start">
+          <div data-id="operations" id="card-operations" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm hover:border-amber-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('operations', 'ops-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">⚙️</span>
                   <div>
@@ -1212,7 +1212,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('operations', 'ops-deep', event)" class="mt-3 w-full py-2 bg-amber-600 hover:bg-amber-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('operations', 'ops-deep', event)" class="mt-3 w-full py-2 bg-amber-600 hover:bg-amber-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1269,10 +1269,10 @@
           </div>
 
           <!-- 財務・経理部 (Finance & Accounting / FP&A) -->
-          <div data-id="finance" onclick="focusDeptCard('finance', 'finance-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
+          <div data-id="finance" id="card-finance" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('finance', 'finance-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">💰</span>
                   <div>
@@ -1291,7 +1291,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('finance', 'finance-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('finance', 'finance-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1348,10 +1348,10 @@
           </div>
 
           <!-- 総務・人事・法務部 (Admin / HR / Legal) -->
-          <div data-id="admin" onclick="focusDeptCard('admin', 'admin-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
+          <div data-id="admin" id="card-admin" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('admin', 'admin-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">⚖</span>
                   <div>
@@ -1370,7 +1370,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('admin', 'admin-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('admin', 'admin-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1430,10 +1430,10 @@
           </div>
 
           <!-- 経営企画部 -->
-          <div data-id="keiki" id="card-keiki" onclick="focusDeptCard('keiki', 'keiki-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
+          <div data-id="keiki" id="card-keiki" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between">
+              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('keiki', 'keiki-deep', event)">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl group-hover:scale-110 transition-transform">📊</span>
                   <div>
@@ -1452,7 +1452,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button onclick="focusDeptCard('keiki', 'keiki-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98">
+            <button type="button" onclick="toggleDeptDetails('keiki', 'keiki-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -2068,7 +2068,7 @@
         </div>
       </div>
 
-      <!-- 3. Online / SaaS / Tech (Includes intra-page bidirectional jumps) -->
+      <!-- 3. Online / SaaS / Tech -->
       <div id="ind-pane-saas" class="industry-pane hidden space-y-4">
         <div class="bg-cyan-50/70 border-2 border-cyan-200 rounded-2xl p-4 md:p-5">
           <div class="flex items-center justify-between border-b border-cyan-200 pb-3 mb-4">
@@ -2516,7 +2516,117 @@
       </div>
     </main>
 
-    <!-- ================= VIEW 3: SEMICONDUCTOR BLUEPRINT ================= -->
+    <!-- ================= VIEW: SAAS PRODUCT LIFECYCLE ================= -->
+    <main id="view-saas" class="hidden space-y-5">
+      <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+        <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+          <span>📱</span> SaaS Product Life Cycle
+        </div>
+        <h2 class="text-xl md:text-2xl font-black font-rounded text-slate-900 mb-1">
+          SaaS事業：上流から下流までの製品開発・運用の流れ
+        </h2>
+        <p class="text-xs font-bold text-slate-600">
+          企画からリリース、顧客継続（CS）までの5段階フローと、各工程の関与部門・役職・KPIを完全網羅。
+        </p>
+      </section>
+
+      <section class="space-y-3 max-w-4xl mx-auto">
+        <!-- Step 1 -->
+        <div class="bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 bg-cyan-600 text-white font-black text-xs rounded-full">STEP 1 (最上流)</span>
+              <h3 class="text-base font-black text-slate-900">アイデア創出 & PMF検証（企画）</h3>
+            </div>
+            <div class="bg-cyan-50 text-cyan-950 font-bold text-xs p-2 rounded-lg">
+              💡 概要・ポイント：「誰のどんな困りごとを解決するか」仮説を立て、売れるか顧客に聞きまくる段階！
+            </div>
+            <div class="text-[11px] text-slate-700 font-bold">
+              👤 <b>主要職種：</b> PdM（プロダクトマネージャー）、BizDev（事業開発）、CPO
+            </div>
+          </div>
+          <span class="text-xs font-black bg-cyan-100 text-cyan-800 px-3 py-1 rounded-lg shrink-0">KPI: PMF / 検証速度</span>
+        </div>
+
+        <div class="text-center text-cyan-400 text-base font-black">↓</div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-2xl p-4 border-2 border-blue-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 bg-blue-600 text-white font-black text-xs rounded-full">STEP 2</span>
+              <h3 class="text-base font-black text-slate-900">要件定義 & UI/UX設計（設計）</h3>
+            </div>
+            <div class="bg-blue-50 text-blue-950 font-bold text-xs p-2 rounded-lg">
+              💡 概要・ポイント：使いやすい画面のデザインを描き、エンジニアが作れる仕様書に落とし込む段階！
+            </div>
+            <div class="text-[11px] text-slate-700 font-bold">
+              👤 <b>主要職種：</b> UI/UXデザイナー、Technical PdM、システムアーキテクト
+            </div>
+          </div>
+          <span class="text-xs font-black bg-blue-100 text-blue-800 px-3 py-1 rounded-lg shrink-0">ツール: Figma / Jira</span>
+        </div>
+
+        <div class="text-center text-blue-400 text-base font-black">↓</div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 bg-indigo-600 text-white font-black text-xs rounded-full">STEP 3</span>
+              <h3 class="text-base font-black text-slate-900">開発 & テスト & デプロイ（DevOps）</h3>
+            </div>
+            <div class="bg-blue-50 text-blue-950 font-bold text-xs p-2 rounded-lg">
+              💡 概要・ポイント：実際にプログラムを書き、バグがないかテストしてクラウド（AWSなど）に公開する段階！
+            </div>
+            <div class="text-[11px] text-slate-700 font-bold">
+              👤 <b>主要職種：</b> CTO / VPoE、フロントエンド/バックエンドエンジニア、QA、SRE
+            </div>
+          </div>
+          <span class="text-xs font-black bg-indigo-100 text-indigo-800 px-3 py-1 rounded-lg shrink-0">KPI: 障害率 / 稼働率</span>
+        </div>
+
+        <div class="text-center text-indigo-400 text-base font-black">↓</div>
+
+        <!-- Step 4 -->
+        <div class="bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 bg-emerald-600 text-white font-black text-xs rounded-full">STEP 4</span>
+              <h3 class="text-base font-black text-slate-900">GTM（マーケティング & 営業・リリース）</h3>
+            </div>
+            <div class="bg-emerald-50 text-emerald-950 font-bold text-xs p-2 rounded-lg">
+              💡 概要・ポイント：広告や商談で見込み客を獲得し、初期ユーザーに契約・課金してもらう段階！
+            </div>
+            <div class="text-[11px] text-slate-700 font-bold">
+              👤 <b>主要職種：</b> PMM（Product Marketing）、インサイドセールス（SDR）、営業（AE）
+            </div>
+          </div>
+          <span class="text-xs font-black bg-emerald-100 text-emerald-800 px-3 py-1 rounded-lg shrink-0">KPI: CAC / ARR / 受注率</span>
+        </div>
+
+        <div class="text-center text-emerald-400 text-base font-black">↓</div>
+
+        <!-- Step 5 -->
+        <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 bg-amber-600 text-white font-black text-xs rounded-full">STEP 5 (下流・継続)</span>
+              <h3 class="text-base font-black text-slate-900">カスタマーサクセス & 改善ループ（CS & Churn防止）</h3>
+            </div>
+            <div class="bg-amber-50 text-amber-950 font-bold text-xs p-2 rounded-lg">
+              💡 概要・ポイント：使いこなせない顧客を助けて解約を防ぎ、追加契約（アップセル）をもらう段階！
+            </div>
+            <div class="text-[11px] text-slate-700 font-bold">
+              👤 <b>主要職種：</b> CSM（Customer Success Manager）、サポート、RevOps
+            </div>
+          </div>
+          <span class="text-xs font-black bg-amber-100 text-amber-800 px-3 py-1 rounded-lg shrink-0">KPI: Churn Rate / NRR</span>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= VIEW: SEMICONDUCTOR BLUEPRINT ================= -->
     <main id="view-semicon" class="hidden space-y-5">
       <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
         <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2">
@@ -2627,7 +2737,6 @@
         </div>
       </section>
 
-      <!-- ================= 縦型プロセスマップ ================= -->
       <section class="space-y-3 max-w-4xl mx-auto">
         <!-- 準備01: シリコンウェハ製造 -->
         <div class="bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm flex flex-col md:flex-row items-center gap-4">
@@ -2874,7 +2983,7 @@
       </section>
     </main>
 
-    <!-- ================= VIEW 4: SENIORITY MAP ================= -->
+    <!-- ================= VIEW 3: SENIORITY MAP ================= -->
     <main id="view-seniority" class="hidden space-y-5">
       <!-- Intro Card -->
       <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
@@ -3210,4 +3319,332 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-bold text-amber-950">
           <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-xs">
             <span class="font-black text-red-600 block mb-1">① 外資系の「VP」≠ 日系企業の「副社長」</span>
-            <p class="text-[11px] leading-snug text-slate-700">外資（特に外資ITや外資金融）のVice President（VP）は「部長〜本部長」クラスです！
+            <p class="text-[11px] leading-snug text-slate-700">外資（特に外資ITや外資金融）のVice President（VP）は「部長〜本部長」クラスです！「社長の次だから偉すぎて現場知らないかも」と敬遠する必要はありません！</p>
+          </div>
+          <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-xs">
+            <span class="font-black text-red-600 block mb-1">② 日系の「主幹・参事・特命」は高確率で課長〜部長</span>
+            <p class="text-[11px] leading-snug text-slate-700">日系大手では「〜課長」という肩書きがつかなくても、「主幹」「参事」「専門部長」は実力派の課長・部長クラスです。エキスパートとして非常に優秀な狙い目！</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast Notification for Copy -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform translate-y-3 z-50 flex items-center gap-2 border border-slate-700">
+      <span>✅</span>
+      <span id="toast-text">Third Bridge検索キーワードをコピーしました！</span>
+    </div>
+
+  </div>
+
+  <script>
+    // Keyword Matching Rules Mapping
+    const rules = {
+      'data-connect': {
+        targets: {
+          'dx': { p: 3, text: '★★★ 最優先（DX企画・データ連携）' },
+          'it': { p: 3, text: '★★★ 最優先（システム接続工事）' },
+          'seigi': { p: 2, text: '★★ 現場側（設備データ）' },
+          'seizo': { p: 2, text: '★★ 現場側（データ発生元）' }
+        }
+      },
+      'factory': {
+        targets: {
+          'seigi': { p: 3, text: '★★★ 最優先（設備・工程改善）' },
+          'seizo': { p: 3, text: '★★★ 最優先（現場当事者）' },
+          'qc': { p: 2, text: '★★ 関連（品質検査）' }
+        }
+      },
+      'sales-client': {
+        targets: {
+          'sales-dept': { p: 3, text: '★★★ 最優先（商談・顧客開拓）' },
+          'analytics-dept': { p: 2, text: '★★ 営業戦略分析' }
+        }
+      },
+      'mkt-lead': {
+        targets: {
+          'marketing-dept': { p: 3, text: '★★★ 最優先（広告・リード獲得）' },
+          'md-dept': { p: 3, text: '★★★ 最優先（商品企画・MD）' }
+        }
+      },
+      'ai-analytics': {
+        showDataGuide: true,
+        targets: {
+          'dx': { p: 3, text: '★★★ 最優先（AI/データ戦略）' },
+          'analytics-dept': { p: 3, text: '★★★ 最優先（営業企画・RevOps）' },
+          'marketing-dept': { p: 2, text: '★★ マーケ分析' }
+        }
+      },
+      'dx-promo': {
+        targets: {
+          'dx': { p: 3, text: '★★★ 最優先（全社DX推進）' },
+          'seigi': { p: 3, text: '★★★ 最優先（自動化・ロボット）' },
+          'it': { p: 2, text: '★★ IT基盤' }
+        }
+      },
+      'scm-demand': {
+        targets: {
+          'scm': { p: 3, text: '★★★ 最優先（Demand Planning / SCM）' },
+          'seizo': { p: 2, text: '★★ 連携（生産計画）' },
+          'sales-dept': { p: 2, text: '★★ 連携（販売実績）' }
+        }
+      },
+      'ops-exec': {
+        targets: {
+          'operations': { p: 3, text: '★★★ 最優先（業務運用・Ops）' },
+          'seizo': { p: 2, text: '★★ 現場実行' }
+        }
+      },
+      'qc-inspection': {
+        targets: {
+          'qc': { p: 3, text: '★★★ 最優先（品質・不良品検査）' },
+          'seizo': { p: 2, text: '★★ 現場ライン' }
+        }
+      },
+      'it-sys': {
+        targets: {
+          'it': { p: 3, text: '★★★ 最優先（社内IT・基幹系）' },
+          'dx': { p: 2, text: '★★ DX戦略連携' }
+        }
+      },
+      'parts-buy': {
+        targets: {
+          'procurement': { p: 3, text: '★★★ 最優先（調達・購買部）' }
+        }
+      },
+      'finance-admin': {
+        targets: {
+          'finance': { p: 3, text: '★★★ 最優先（財務・FP&A・経理）' },
+          'admin': { p: 3, text: '★★★ 最優先（総務・人事・法務）' },
+          'keiki': { p: 2, text: '★★ 関連（全社予算）' }
+        }
+      }
+    };
+
+    function switchView(viewName) {
+      const views = ['dept', 'industry', 'semicon', 'seniority'];
+      views.forEach(v => {
+        const el = document.getElementById(`view-${v}`);
+        const btn = document.getElementById(`tab-btn-${v}`);
+        if (el) el.classList.add('hidden');
+        if (btn) {
+          btn.classList.remove('bg-white', 'text-blue-700', 'shadow-sm');
+          btn.classList.add('text-slate-600');
+        }
+      });
+
+      const targetView = document.getElementById(`view-${viewName}`);
+      const targetBtn = document.getElementById(`tab-btn-${viewName}`);
+      if (targetView) targetView.classList.remove('hidden');
+      if (targetBtn) {
+        targetBtn.classList.add('bg-white', 'text-blue-700', 'shadow-sm');
+        targetBtn.classList.remove('text-slate-600');
+      }
+    }
+
+    function switchIndustryTab(industryKey) {
+      const panes = document.querySelectorAll('.industry-pane');
+      panes.forEach(p => p.classList.add('hidden'));
+
+      const targetPane = document.getElementById(`ind-pane-${industryKey}`);
+      if (targetPane) targetPane.classList.remove('hidden');
+
+      // Show SaaS vs SIer guide ONLY for sier and saas tabs
+      const saasSierGuide = document.getElementById('saas-sier-guide');
+      if (saasSierGuide) {
+        if (industryKey === 'sier' || industryKey === 'saas') {
+          saasSierGuide.classList.remove('hidden');
+        } else {
+          saasSierGuide.classList.add('hidden');
+        }
+      }
+
+      // Update button active states
+      const buttons = ['sier', 'finance', 'saas', 'retail'];
+      buttons.forEach(k => {
+        const btn = document.getElementById(`ind-btn-${k}`);
+        if (!btn) return;
+        if (k === industryKey) {
+          btn.className = "px-3 py-2 rounded-lg font-black text-xs transition bg-white text-blue-700 shadow-xs";
+        } else {
+          btn.className = "px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900";
+        }
+      });
+    }
+
+    function filterKeyword(key) {
+      switchView('dept');
+
+      const data = rules[key];
+      if (!data) return;
+
+      // Toggle Data Analytics Guidance Box ONLY when 'ai-analytics' button is clicked
+      const analyticsGuide = document.getElementById('data-analytics-guide');
+      if (analyticsGuide) {
+        if (data.showDataGuide) {
+          analyticsGuide.classList.remove('hidden');
+        } else {
+          analyticsGuide.classList.add('hidden');
+        }
+      }
+
+      let firstPriorityElement = null;
+
+      document.querySelectorAll('.dept-card').forEach(card => {
+        const id = card.getAttribute('data-id');
+        const badge = card.querySelector('.badge-priority');
+        card.classList.remove('highlight-glow', 'highlight-sub', 'border-red-500', 'border-blue-500', 'border-slate-300', 'opacity-30', 'bg-red-50/40', 'bg-blue-50/30');
+
+        if (data.targets[id]) {
+          const item = data.targets[id];
+          card.classList.remove('opacity-30');
+          badge.classList.remove('hidden', 'bg-red-600', 'bg-blue-600', 'bg-slate-500');
+
+          if (item.p === 3) {
+            card.classList.add('highlight-glow', 'bg-red-50/40');
+            badge.classList.add('bg-red-600');
+            badge.textContent = item.text;
+            if (!firstPriorityElement) {
+              firstPriorityElement = card;
+            }
+          } else if (item.p === 2) {
+            card.classList.add('highlight-sub', 'bg-blue-50/30');
+            badge.classList.add('bg-blue-600');
+            badge.textContent = item.text;
+            if (!firstPriorityElement) {
+              firstPriorityElement = card;
+            }
+          } else {
+            card.classList.add('border-slate-300', 'opacity-40');
+            badge.classList.add('bg-slate-500');
+            badge.textContent = item.text;
+          }
+        } else {
+          card.classList.add('opacity-30', 'border-slate-200');
+          badge.classList.add('hidden');
+        }
+      });
+
+      if (firstPriorityElement) {
+        setTimeout(() => {
+          firstPriorityElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }
+
+    function clearDimmingOnly() {
+      document.querySelectorAll('.dept-card').forEach(card => {
+        card.classList.remove('opacity-30', 'opacity-25', 'opacity-40');
+      });
+    }
+
+    function resetAll() {
+      const analyticsGuide = document.getElementById('data-analytics-guide');
+      if (analyticsGuide) analyticsGuide.classList.add('hidden');
+
+      document.querySelectorAll('.dept-card').forEach(card => {
+        card.classList.remove('highlight-glow', 'highlight-sub', 'border-red-500', 'border-blue-500', 'border-slate-300', 'opacity-30', 'opacity-25', 'opacity-40', 'bg-red-50/40', 'bg-blue-50/30');
+        const badge = card.querySelector('.badge-priority');
+        if (badge) badge.classList.add('hidden');
+      });
+    }
+
+    function toggleSubNested(event, contentId) {
+      if (event) {
+        if (typeof event.stopPropagation === 'function') event.stopPropagation();
+        if (typeof event.preventDefault === 'function') event.preventDefault();
+      }
+      const el = document.getElementById(contentId);
+      const arrow = document.getElementById(contentId + '-arrow');
+      if (el) {
+        const isHidden = el.classList.contains('hidden');
+        if (isHidden) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+        if (arrow) {
+          arrow.textContent = isHidden ? '▲ 閉じる' : '▼ 開く';
+        }
+      }
+    }
+
+    // Direct, robust toggle function for all department cards
+    function toggleDeptDetails(deptId, detailId, event) {
+      if (event) {
+        if (typeof event.stopPropagation === 'function') event.stopPropagation();
+        if (typeof event.preventDefault === 'function') event.preventDefault();
+      }
+
+      clearDimmingOnly();
+
+      const detailEl = document.getElementById(detailId);
+      const targetCard = document.getElementById('card-' + deptId) || document.querySelector(`[data-id="${deptId}"]`);
+
+      if (detailEl) {
+        const isCurrentlyHidden = detailEl.classList.contains('hidden');
+        if (isCurrentlyHidden) {
+          detailEl.classList.remove('hidden');
+        } else {
+          detailEl.classList.add('hidden');
+        }
+
+        if (targetCard) {
+          const btnLabel = targetCard.querySelector('.btn-label');
+          if (btnLabel) {
+            btnLabel.textContent = isCurrentlyHidden ? '▲ 閉じる' : '▼ 詳細';
+          }
+        }
+      }
+
+      if (targetCard) {
+        targetCard.classList.add('ring-4', 'ring-blue-400');
+        setTimeout(() => {
+          targetCard.classList.remove('ring-4', 'ring-blue-400');
+        }, 1200);
+      }
+    }
+
+    // Alias for backward compatibility
+    function focusDeptCard(deptId, detailId, event) {
+      toggleDeptDetails(deptId, detailId, event);
+    }
+
+    function scrollWithinSaas(targetElementId) {
+      const el = document.getElementById(targetElementId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('jump-spotlight');
+        setTimeout(() => el.classList.remove('jump-spotlight'), 2200);
+      }
+    }
+
+    function copyKeywords(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(`コピー完了: ${text}`);
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      if (!toast || !toastText) return;
+      toastText.textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
