@@ -68,6 +68,13 @@
       white-space: nowrap !important;
       flex-shrink: 0;
     }
+    /* Fail-safe visibility rules independent of external CSS framework loading */
+    .hidden {
+      display: none !important;
+    }
+    .detail-box-open {
+      display: block !important;
+    }
   </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased min-h-screen p-3 md:p-6 font-sans">
@@ -227,12 +234,12 @@
           <div data-id="dx" id="card-dx" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm hover:border-indigo-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('dx', 'dx-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">🚀</span>
+                  <span class="text-3xl">🚀</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded">仕組みを変える人</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-indigo-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       デジタルトランスフォーメーション推進部（DX推進部）
                     </h3>
                   </div>
@@ -246,7 +253,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('dx', 'dx-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('dx', 'dx-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -312,12 +319,12 @@
           <div data-id="it" id="card-it" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm hover:border-indigo-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('it', 'it-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">💻</span>
+                  <span class="text-3xl">💻</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded">配線工事・技術</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-indigo-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       情報システム部
                     </h3>
                   </div>
@@ -331,7 +338,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('it', 'it-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('it', 'it-deep', event)" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -431,12 +438,12 @@
           <div data-id="sales-dept" id="card-sales-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm hover:border-emerald-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('sales-dept', 'sales-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">🗣</span>
+                  <span class="text-3xl">🗣</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">顧客と商談・契約</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-emerald-700 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       営業部門（セールス部）
                     </h3>
                   </div>
@@ -449,7 +456,7 @@
               </div>
             </div>
 
-            <button type="button" onclick="toggleDeptDetails('sales-dept', 'sales-deep', event)" class="mt-3 w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('sales-dept', 'sales-deep', event)" class="mt-3 w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -520,12 +527,12 @@
           <div data-id="marketing-dept" id="card-marketing-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-teal-200 shadow-sm hover:border-teal-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('marketing-dept', 'mkt-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">📣</span>
+                  <span class="text-3xl">📣</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-teal-700 bg-teal-100 px-2 py-0.5 rounded">認知・リード獲得</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-teal-700 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       マーケティング部門
                     </h3>
                   </div>
@@ -538,7 +545,7 @@
               </div>
             </div>
 
-            <button type="button" onclick="toggleDeptDetails('marketing-dept', 'mkt-deep', event)" class="mt-3 w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('marketing-dept', 'mkt-deep', event)" class="mt-3 w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -598,12 +605,12 @@
           <div data-id="md-dept" id="card-md-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-pink-200 shadow-sm hover:border-pink-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('md-dept', 'md-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">🛍</span>
+                  <span class="text-3xl">🛍</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-pink-700 bg-pink-100 px-2 py-0.5 rounded">商品・品揃え・価格</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-pink-700 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       商品企画部（マーチャンダイジング部: MD部）
                     </h3>
                   </div>
@@ -616,7 +623,7 @@
               </div>
             </div>
 
-            <button type="button" onclick="toggleDeptDetails('md-dept', 'md-deep', event)" class="mt-3 w-full py-2 bg-pink-600 hover:bg-pink-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('md-dept', 'md-deep', event)" class="mt-3 w-full py-2 bg-pink-600 hover:bg-pink-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -680,12 +687,12 @@
           <div data-id="analytics-dept" id="card-analytics-dept" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm hover:border-cyan-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('analytics-dept', 'analytics-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">📊</span>
+                  <span class="text-3xl">📊</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded">売上分析・KPI管理</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-cyan-700 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       営業企画部（データアナリティクス部 / RevOps）
                     </h3>
                   </div>
@@ -698,7 +705,7 @@
               </div>
             </div>
 
-            <button type="button" onclick="toggleDeptDetails('analytics-dept', 'analytics-deep', event)" class="mt-3 w-full py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('analytics-dept', 'analytics-deep', event)" class="mt-3 w-full py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -774,12 +781,12 @@
           <div data-id="seigi" id="card-seigi" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-orange-200 shadow-sm hover:border-orange-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('seigi', 'seigi-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">⚙️</span>
+                  <span class="text-3xl">⚙️</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded">設備のプロ</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-orange-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       生産技術部
                     </h3>
                   </div>
@@ -793,7 +800,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('seigi', 'seigi-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('seigi', 'seigi-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -858,12 +865,12 @@
           <div data-id="seizo" id="card-seizo" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-orange-200 shadow-sm hover:border-orange-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('seizo', 'seizo-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">🏭</span>
+                  <span class="text-3xl">🏭</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded">現場の主役</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-orange-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       製造部（生産管理部 / 工場）
                     </h3>
                   </div>
@@ -877,7 +884,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('seizo', 'seizo-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('seizo', 'seizo-deep', event)" class="mt-3 w-full py-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -941,12 +948,12 @@
           <div data-id="qc" id="card-qc" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-rose-200 shadow-sm hover:border-rose-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('qc', 'qc-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">🔍</span>
+                  <span class="text-3xl">🔍</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-rose-700 bg-rose-100 px-2 py-0.5 rounded">検査・ルール</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-rose-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       品質管理部（QC） / 品質保証部（QA）
                     </h3>
                   </div>
@@ -960,7 +967,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('qc', 'qc-deep', event)" class="mt-3 w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('qc', 'qc-deep', event)" class="mt-3 w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1035,12 +1042,12 @@
           <div data-id="procurement" id="card-procurement" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('procurement', 'proc-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">🛒</span>
+                  <span class="text-3xl">🛒</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">買い付け・仕入れ</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       調達・購買部
                     </h3>
                   </div>
@@ -1054,7 +1061,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('procurement', 'proc-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('procurement', 'proc-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1114,12 +1121,12 @@
           <div data-id="scm" id="card-scm" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('scm', 'scm-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">📦</span>
+                  <span class="text-3xl">📦</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">運ぶ・在庫・予測</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       サプライチェーンマネジメント部（SCM部） / 物流部
                     </h3>
                   </div>
@@ -1133,7 +1140,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('scm', 'scm-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('scm', 'scm-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1193,12 +1200,12 @@
           <div data-id="operations" id="card-operations" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm hover:border-amber-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('operations', 'ops-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">⚙️</span>
+                  <span class="text-3xl">⚙️</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">業務運用・実行</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-amber-700 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       オペレーション部（業務推進部 / Ops部）
                     </h3>
                   </div>
@@ -1212,7 +1219,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('operations', 'ops-deep', event)" class="mt-3 w-full py-2 bg-amber-600 hover:bg-amber-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('operations', 'ops-deep', event)" class="mt-3 w-full py-2 bg-amber-600 hover:bg-amber-700 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1272,12 +1279,12 @@
           <div data-id="finance" id="card-finance" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('finance', 'finance-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">💰</span>
+                  <span class="text-3xl">💰</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">お金の管理・決算</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       財務企画部（FP&A） / 経理部（Accounting）
                     </h3>
                   </div>
@@ -1291,7 +1298,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('finance', 'finance-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('finance', 'finance-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1351,12 +1358,12 @@
           <div data-id="admin" id="card-admin" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('admin', 'admin-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">⚖</span>
+                  <span class="text-3xl">⚖</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">人・契約・社内管理</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       人事部（HR） / 法務部（Legal） / 総務部（Admin）
                     </h3>
                   </div>
@@ -1370,7 +1377,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('admin', 'admin-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('admin', 'admin-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -1433,12 +1440,12 @@
           <div data-id="keiki" id="card-keiki" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
-              <div class="group flex items-center justify-between cursor-pointer" onclick="toggleDeptDetails('keiki', 'keiki-deep', event)">
+              <div class="group flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <span class="text-3xl group-hover:scale-110 transition-transform">📊</span>
+                  <span class="text-3xl">📊</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">全社方針</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 leading-tight mt-0.5">
                       経営企画部
                     </h3>
                   </div>
@@ -1452,7 +1459,7 @@
             </div>
 
             <!-- Deep Dive Button -->
-            <button type="button" onclick="toggleDeptDetails('keiki', 'keiki-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer">
+            <button type="button" onclick="toggleDeptDetails('keiki', 'keiki-deep', event)" class="mt-3 w-full py-2 bg-slate-700 hover:bg-slate-800 text-white font-black text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition active:scale-98 cursor-pointer select-none">
               <span class="btn-label">▼ 詳細</span>
             </button>
 
@@ -3557,19 +3564,22 @@
       const el = document.getElementById(contentId);
       const arrow = document.getElementById(contentId + '-arrow');
       if (el) {
-        const isHidden = el.classList.contains('hidden');
-        if (isHidden) {
+        // Direct display style toggle ensuring 100% cross-environment operation
+        const isCurrentlyHidden = el.classList.contains('hidden') || el.style.display === 'none' || window.getComputedStyle(el).display === 'none';
+        if (isCurrentlyHidden) {
           el.classList.remove('hidden');
+          el.style.display = 'block';
         } else {
           el.classList.add('hidden');
+          el.style.display = 'none';
         }
         if (arrow) {
-          arrow.textContent = isHidden ? '▲ 閉じる' : '▼ 開く';
+          arrow.textContent = isCurrentlyHidden ? '▲ 閉じる' : '▼ 開く';
         }
       }
     }
 
-    // Direct, robust toggle function for all department cards
+    // Direct, foolproof toggle function for all department cards across all devices and shared links
     function toggleDeptDetails(deptId, detailId, event) {
       if (event) {
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
@@ -3582,11 +3592,19 @@
       const targetCard = document.getElementById('card-' + deptId) || document.querySelector(`[data-id="${deptId}"]`);
 
       if (detailEl) {
-        const isCurrentlyHidden = detailEl.classList.contains('hidden');
+        // Read actual computed state so it never fails even if CSS hasn't fully loaded
+        const isCurrentlyHidden = detailEl.classList.contains('hidden') || 
+                                  detailEl.style.display === 'none' || 
+                                  window.getComputedStyle(detailEl).display === 'none';
+
         if (isCurrentlyHidden) {
           detailEl.classList.remove('hidden');
+          detailEl.classList.add('detail-box-open');
+          detailEl.style.display = 'block';
         } else {
           detailEl.classList.add('hidden');
+          detailEl.classList.remove('detail-box-open');
+          detailEl.style.display = 'none';
         }
 
         if (targetCard) {
