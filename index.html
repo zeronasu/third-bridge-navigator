@@ -31,6 +31,25 @@
       box-shadow: 0 0 15px rgba(59, 130, 246, 0.45);
       border-color: #3b82f6 !important;
     }
+    .jump-spotlight {
+      animation: spotlight-pulse 2.2s ease-out forwards;
+    }
+    @keyframes spotlight-pulse {
+      0% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 4px #06b6d4, 0 0 25px rgba(6, 182, 212, 0.6);
+        border-color: #0891b2 !important;
+      }
+      50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 4px #22d3ee, 0 0 35px rgba(34, 211, 238, 0.8);
+        border-color: #06b6d4 !important;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 transparent;
+      }
+    }
     @keyframes pulse-border {
       0%, 100% { border-color: #ef4444; }
       50% { border-color: #f87171; }
@@ -44,6 +63,10 @@
       padding: 2px 8px;
       border-radius: 6px;
       display: inline-block;
+    }
+    .btn-label {
+      white-space: nowrap !important;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -201,7 +224,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           <!-- DX推進部 -->
-          <div data-id="dx" onclick="focusDeptCard('dx', 'dx-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm cursor-pointer hover:border-indigo-400 transition flex flex-col justify-between self-start">
+          <div data-id="dx" id="card-dx" onclick="focusDeptCard('dx', 'dx-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm cursor-pointer hover:border-indigo-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
               <div class="group flex items-center justify-between">
@@ -209,15 +232,14 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">🚀</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded">仕組みを変える人</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-indigo-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-indigo-600 leading-tight transition-colors mt-0.5">
                       デジタルトランスフォーメーション推進部（DX推進部）
-                      <span class="title-detail-indicator text-xs font-bold text-indigo-400 group-hover:text-indigo-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
               </div>
               <div class="text-xs font-bold text-slate-500 mt-1">（デジタル戦略室 / 業務改革推進部）</div>
-              
+
               <div class="bg-indigo-50/80 rounded-xl p-2.5 mt-2.5 text-xs font-extrabold text-indigo-950 border border-indigo-100">
                 👉 紙やバラバラのデータを「繋げて業務を楽にする」人
               </div>
@@ -287,7 +309,7 @@
           </div>
 
           <!-- 情報システム部 -->
-          <div data-id="it" onclick="focusDeptCard('it', 'it-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm cursor-pointer hover:border-indigo-400 transition flex flex-col justify-between self-start">
+          <div data-id="it" id="card-it" onclick="focusDeptCard('it', 'it-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm cursor-pointer hover:border-indigo-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
               <div class="group flex items-center justify-between">
@@ -295,15 +317,14 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">💻</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded">配線工事・技術</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-indigo-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-indigo-600 leading-tight transition-colors mt-0.5">
                       情報システム部
-                      <span class="title-detail-indicator text-xs font-bold text-indigo-400 group-hover:text-indigo-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
               </div>
               <div class="text-xs font-bold text-slate-500 mt-1">（IT部 / システム開発部 / 社内SE）</div>
-              
+
               <div class="bg-indigo-50/80 rounded-xl p-2.5 mt-2.5 text-xs font-extrabold text-indigo-950 border border-indigo-100">
                 👉 システム同士を裏で「配線・接続する（インテグレーション）」技術者
               </div>
@@ -407,7 +428,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
 
           <!-- 1. 営業部門（セールス） -->
-          <div data-id="sales-dept" onclick="focusDeptCard('sales-dept', 'sales-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm cursor-pointer hover:border-emerald-400 transition flex flex-col justify-between self-start">
+          <div data-id="sales-dept" id="card-sales-dept" onclick="focusDeptCard('sales-dept', 'sales-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm cursor-pointer hover:border-emerald-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
               <div class="group flex items-center justify-between">
@@ -415,15 +436,14 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">🗣</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">顧客と商談・契約</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-emerald-700 leading-tight transition-colors flex items-center gap-1 mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-emerald-700 leading-tight transition-colors mt-0.5">
                       営業部門（セールス部）
-                      <span class="title-detail-indicator text-xs font-bold text-emerald-500">▼詳細</span>
                     </h3>
                   </div>
                 </div>
               </div>
               <div class="text-[11px] font-bold text-slate-500 mt-1">（法人営業部 / アカウントセールス部 / 営業統括部）</div>
-              
+
               <div class="bg-emerald-50/80 rounded-xl p-2.5 mt-2.5 text-xs font-extrabold text-emerald-950 border border-emerald-100">
                 👉 顧客と直接対面・オンラインで商談し「契約・売上を取ってくる」人
               </div>
@@ -497,7 +517,7 @@
           </div>
 
           <!-- 2. マーケティング部門 -->
-          <div data-id="marketing-dept" onclick="focusDeptCard('marketing-dept', 'mkt-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-teal-200 shadow-sm cursor-pointer hover:border-teal-400 transition flex flex-col justify-between self-start">
+          <div data-id="marketing-dept" id="card-marketing-dept" onclick="focusDeptCard('marketing-dept', 'mkt-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-teal-200 shadow-sm cursor-pointer hover:border-teal-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
               <div class="group flex items-center justify-between">
@@ -505,15 +525,14 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">📣</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-teal-700 bg-teal-100 px-2 py-0.5 rounded">認知・リード獲得</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-teal-700 leading-tight transition-colors flex items-center gap-1 mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-teal-700 leading-tight transition-colors mt-0.5">
                       マーケティング部門
-                      <span class="title-detail-indicator text-xs font-bold text-teal-500">▼詳細</span>
                     </h3>
                   </div>
                 </div>
               </div>
               <div class="text-[11px] font-bold text-slate-500 mt-1">（宣伝部 / 広報マーケティング部 / デジタルマーケ部）</div>
-              
+
               <div class="bg-teal-50/80 rounded-xl p-2.5 mt-2.5 text-xs font-extrabold text-teal-950 border border-teal-100">
                 👉 広告・SNS・イベント等で「商品を知ってもらい見込み客を集める」人
               </div>
@@ -584,9 +603,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">🛍</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-pink-700 bg-pink-100 px-2 py-0.5 rounded">商品・品揃え・価格</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-pink-700 leading-tight transition-colors flex items-center gap-1 mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-pink-700 leading-tight transition-colors mt-0.5">
                       商品企画部（マーチャンダイジング部: MD部）
-                      <span class="title-detail-indicator text-xs font-bold text-pink-500">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -659,7 +677,7 @@
           </div>
 
           <!-- 4. 営業企画・データアナリティクス部門（RevOps） -->
-          <div data-id="analytics-dept" onclick="focusDeptCard('analytics-dept', 'analytics-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm cursor-pointer hover:border-cyan-400 transition flex flex-col justify-between self-start">
+          <div data-id="analytics-dept" id="card-analytics-dept" onclick="focusDeptCard('analytics-dept', 'analytics-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm cursor-pointer hover:border-cyan-400 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
               <div class="group flex items-center justify-between">
@@ -667,15 +685,14 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">📊</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded">売上分析・KPI管理</span>
-                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-cyan-700 leading-tight transition-colors flex items-center gap-1 mt-0.5">
+                    <h3 class="text-base md:text-lg font-black font-rounded text-slate-900 group-hover:text-cyan-700 leading-tight transition-colors mt-0.5">
                       営業企画部（データアナリティクス部 / RevOps）
-                      <span class="title-detail-indicator text-xs font-bold text-cyan-500">▼詳細</span>
                     </h3>
                   </div>
                 </div>
               </div>
               <div class="text-[11px] font-bold text-slate-500 mt-1">（Revenue Operations / Sales Operations / BI推進課）</div>
-              
+
               <div class="bg-cyan-50/80 rounded-xl p-2.5 mt-2.5 text-xs font-extrabold text-cyan-950 border border-cyan-100">
                 👉 成約率や顧客データを分析し「どうすれば売上が伸びるか」戦略を作る人
               </div>
@@ -762,9 +779,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">⚙️</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded">設備のプロ</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-orange-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-orange-600 leading-tight transition-colors mt-0.5">
                       生産技術部
-                      <span class="title-detail-indicator text-xs font-bold text-orange-400 group-hover:text-orange-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -847,9 +863,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">🏭</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded">現場の主役</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-orange-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-orange-600 leading-tight transition-colors mt-0.5">
                       製造部（生産管理部 / 工場）
-                      <span class="title-detail-indicator text-xs font-bold text-orange-400 group-hover:text-orange-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -931,9 +946,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">🔍</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-rose-700 bg-rose-100 px-2 py-0.5 rounded">検査・ルール</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-rose-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-rose-600 leading-tight transition-colors mt-0.5">
                       品質管理部（QC） / 品質保証部（QA）
-                      <span class="title-detail-indicator text-xs font-bold text-rose-400 group-hover:text-rose-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -1026,9 +1040,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">🛒</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">買い付け・仕入れ</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
                       調達・購買部
-                      <span class="title-detail-indicator text-xs font-bold text-slate-400 group-hover:text-slate-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -1106,9 +1119,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">📦</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">運ぶ・在庫・予測</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
                       サプライチェーンマネジメント部（SCM部） / 物流部
-                      <span class="title-detail-indicator text-xs font-bold text-slate-400 group-hover:text-slate-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -1186,9 +1198,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">⚙️</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">業務運用・実行</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-amber-700 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-amber-700 leading-tight transition-colors mt-0.5">
                       オペレーション部（業務推進部 / Ops部）
-                      <span class="title-detail-indicator text-xs font-bold text-amber-500">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -1266,9 +1277,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">💰</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">お金の管理・決算</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
                       財務企画部（FP&A） / 経理部（Accounting）
-                      <span class="title-detail-indicator text-xs font-bold text-slate-400 group-hover:text-slate-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -1346,9 +1356,8 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">⚖</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">人・契約・社内管理</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
                       人事部（HR） / 法務部（Legal） / 総務部（Admin）
-                      <span class="title-detail-indicator text-xs font-bold text-slate-400 group-hover:text-slate-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
@@ -1421,7 +1430,7 @@
           </div>
 
           <!-- 経営企画部 -->
-          <div data-id="keiki" onclick="focusDeptCard('keiki', 'keiki-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
+          <div data-id="keiki" id="card-keiki" onclick="focusDeptCard('keiki', 'keiki-deep', event)" class="dept-card relative bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm cursor-pointer hover:border-slate-500 transition flex flex-col justify-between self-start">
             <div class="badge-priority absolute -top-3 right-4 hidden font-black text-xs px-3 py-1 rounded-full text-white shadow"></div>
             <div>
               <div class="group flex items-center justify-between">
@@ -1429,15 +1438,14 @@
                   <span class="text-3xl group-hover:scale-110 transition-transform">📊</span>
                   <div>
                     <span class="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">全社方針</span>
-                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors flex items-center gap-1.5 mt-0.5">
+                    <h3 class="text-lg md:text-xl font-black font-rounded text-slate-900 group-hover:text-slate-600 leading-tight transition-colors mt-0.5">
                       経営企画部
-                      <span class="title-detail-indicator text-xs font-bold text-slate-400 group-hover:text-slate-600">▼詳細</span>
                     </h3>
                   </div>
                 </div>
               </div>
               <div class="text-xs font-bold text-slate-500 mt-1">（事業開発部 / 社長室）</div>
-              
+
               <div class="bg-slate-100 rounded-xl p-2.5 mt-2.5 text-xs font-extrabold text-slate-800 border border-slate-200">
                 👉 会社の「予算や将来の計画」を決める人
               </div>
@@ -1578,15 +1586,6 @@
               </div>
             </div>
             <span class="text-xs font-black bg-blue-200 text-blue-900 px-3 py-1 rounded-full">受託・IT開発</span>
-          </div>
-
-          <!-- Watch Out Card -->
-          <div class="bg-amber-100/90 border-l-4 border-amber-500 p-3 rounded-r-xl mb-4 text-xs font-bold text-amber-950">
-            <span class="font-black text-sm block mb-1">🚨 Third Bridge特有の超重要トラップ！</span>
-            「製造業のデータ連携に詳しい人を探して」という依頼は、<br>
-            ①<b>製造業の中で推進した人（ユーザー企業側）</b>を探すのか、それとも<br>
-            ②<b>製造業向けにシステムを作って納品したSIer（NTTデータ、アクセンチュア、日立等）の担当者</b>を探すのか、必ず確認！<br>
-            SIerのエキスパートは「複数社の事例・製品比較」を横断して知っているため、クライアントに大人気です！
           </div>
 
           <!-- SIer Dept Grid -->
@@ -2087,9 +2086,20 @@
 
           <div class="grid grid-cols-1 md:grid-cols-4 gap-3 items-start">
             <!-- Product Management -->
-            <div class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5">
+            <div id="saas-dept-pdm" class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5 transition">
               <span class="text-[10px] font-black text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded">プロダクトの司令塔</span>
               <h4 class="text-lg font-black font-rounded text-slate-900">プロダクトマネジメント部（PdM部）</h4>
+              
+              <!-- Quick Jump Chips to Steps inside SaaS -->
+              <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+                <button type="button" onclick="scrollWithinSaas('saas-step-1')" class="text-[10px] font-extrabold bg-cyan-100/80 hover:bg-cyan-200 text-cyan-900 px-2 py-0.5 rounded border border-cyan-300 transition active:scale-95">
+                  ➔ STEP 1 (企画)
+                </button>
+                <button type="button" onclick="scrollWithinSaas('saas-step-2')" class="text-[10px] font-extrabold bg-cyan-100/80 hover:bg-cyan-200 text-cyan-900 px-2 py-0.5 rounded border border-cyan-300 transition active:scale-95">
+                  ➔ STEP 2 (設計)
+                </button>
+              </div>
+
               <div class="bg-cyan-50 p-2 rounded-lg text-[11px] font-bold text-cyan-950">
                 👉 「どんな新機能を作るか」「ロードマップ」を決める責任者（★案件で超頻出！）
               </div>
@@ -2121,9 +2131,17 @@
             </div>
 
             <!-- Engineering -->
-            <div class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5">
+            <div id="saas-dept-eng" class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5 transition">
               <span class="text-[10px] font-black text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded">開発・コード</span>
               <h4 class="text-lg font-black font-rounded text-slate-900">開発統括本部（エンジニアリング組織 / VPoE）</h4>
+              
+              <!-- Quick Jump Chip to Step inside SaaS -->
+              <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+                <button type="button" onclick="scrollWithinSaas('saas-step-3')" class="text-[10px] font-extrabold bg-blue-100/80 hover:bg-blue-200 text-blue-900 px-2 py-0.5 rounded border border-blue-300 transition active:scale-95">
+                  ➔ STEP 3 (DevOps)
+                </button>
+              </div>
+
               <div class="bg-cyan-50 p-2 rounded-lg text-[11px] font-bold text-cyan-950">
                 👉 ソフトウェアエンジニアを束ねて、クラウド上で実際にアプリを開発・運用する部隊
               </div>
@@ -2155,9 +2173,17 @@
             </div>
 
             <!-- Customer Success (CS) -->
-            <div class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5">
+            <div id="saas-dept-cs" class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5 transition">
               <span class="text-[10px] font-black text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded">解約阻止・継続率</span>
               <h4 class="text-lg font-black font-rounded text-slate-900">カスタマーサクセス統括部（CS部）</h4>
+              
+              <!-- Quick Jump Chip to Step inside SaaS -->
+              <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+                <button type="button" onclick="scrollWithinSaas('saas-step-5')" class="text-[10px] font-extrabold bg-amber-100/80 hover:bg-amber-200 text-amber-950 px-2 py-0.5 rounded border border-amber-300 transition active:scale-95">
+                  ➔ STEP 5 (CS・改善)
+                </button>
+              </div>
+
               <div class="bg-cyan-50 p-2 rounded-lg text-[11px] font-bold text-cyan-950">
                 👉 契約した企業に使ってもらい「解約（Churn）を防ぎ、利用料を増やす」人
               </div>
@@ -2189,9 +2215,20 @@
             </div>
 
             <!-- Growth / RevOps -->
-            <div class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5">
+            <div id="saas-dept-revops" class="bg-white rounded-2xl p-3.5 border-2 border-cyan-200 shadow-xs space-y-1.5 transition">
               <span class="text-[10px] font-black text-cyan-700 bg-cyan-100 px-2 py-0.5 rounded">数値・売上オペレーション</span>
               <h4 class="text-lg font-black font-rounded text-slate-900">事業推進部（レベニューオペレーション部 / RevOps）</h4>
+              
+              <!-- Quick Jump Chips to Steps inside SaaS -->
+              <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+                <button type="button" onclick="scrollWithinSaas('saas-step-4')" class="text-[10px] font-extrabold bg-emerald-100/80 hover:bg-emerald-200 text-emerald-900 px-2 py-0.5 rounded border border-emerald-300 transition active:scale-95">
+                  ➔ STEP 4 (GTM)
+                </button>
+                <button type="button" onclick="scrollWithinSaas('saas-step-5')" class="text-[10px] font-extrabold bg-amber-100/80 hover:bg-amber-200 text-amber-950 px-2 py-0.5 rounded border border-amber-300 transition active:scale-95">
+                  ➔ STEP 5 (分析)
+                </button>
+              </div>
+
               <div class="bg-cyan-50 p-2 rounded-lg text-[11px] font-bold text-cyan-950">
                 👉 ARRやMRR、コンバージョン率を分析し、ツール連携と売上最大化を担う人
               </div>
@@ -2225,11 +2262,16 @@
 
           <!-- Integrated SaaS Product Lifecycle Flow Section -->
           <div class="mt-6 pt-5 border-t-2 border-cyan-200 space-y-3">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="text-lg">🔄</span>
-              <h4 class="text-base md:text-lg font-black font-rounded text-cyan-950">
-                【SaaS事業】上流から下流までの製品開発・運用の流れ（Product Life Cycle）
-              </h4>
+            <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🔄</span>
+                <h4 class="text-base md:text-lg font-black font-rounded text-cyan-950">
+                  【SaaS事業】上流から下流までの製品開発・運用の流れ（Product Life Cycle）
+                </h4>
+              </div>
+              <span class="text-[11px] font-black bg-cyan-100 text-cyan-900 px-2.5 py-1 rounded-lg">
+                💡 各STEPをタップすると上のSaaS部門カードへジャンプします
+              </span>
             </div>
             <p class="text-xs font-bold text-slate-600 mb-3">
               アイデア検証から設計・実装、マーケ・セールス、そして解約阻止（CS）までの5段階の連動フローです。
@@ -2237,14 +2279,17 @@
 
             <div class="space-y-2.5">
               <!-- Step 1 -->
-              <div class="bg-white rounded-xl p-3 border border-cyan-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
+              <div id="saas-step-1" onclick="scrollWithinSaas('saas-dept-pdm')" class="group bg-white rounded-xl p-3 border-2 border-cyan-200 hover:border-cyan-500 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 cursor-pointer transition">
                 <div class="space-y-1 flex-1">
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 flex-wrap">
                     <span class="px-2 py-0.5 bg-cyan-600 text-white font-black text-[11px] rounded-full">STEP 1 (最上流)</span>
-                    <h5 class="text-sm font-black text-slate-900">アイデア創出 & PMF検証（企画）</h5>
+                    <h5 class="text-sm font-black text-slate-900 group-hover:text-cyan-700 transition">アイデア創出 & PMF検証（企画）</h5>
+                    <span class="text-[10px] font-black bg-cyan-50 text-cyan-700 px-2 py-0.5 rounded border border-cyan-200">
+                      👉 上の「PdM部」へジャンプ ➔
+                    </span>
                   </div>
                   <div class="bg-cyan-50 text-cyan-950 font-bold text-[11px] p-1.5 rounded">
-                    💡 サルでもわかる解説：「誰のどんな困りごとを解決するか」仮説を立て、売れるか顧客に聞きまくる段階！
+                    💡 概要・ポイント：「誰のどんな困りごとを解決するか」仮説を立て、売れるか顧客に聞きまくる段階！
                   </div>
                   <div class="text-[11px] text-slate-700 font-bold">
                     👤 <b>主要職種：</b> PdM（プロダクトマネージャー）、BizDev（事業開発）、CPO
@@ -2256,14 +2301,17 @@
               <div class="text-center text-cyan-400 text-xs font-black">↓</div>
 
               <!-- Step 2 -->
-              <div class="bg-white rounded-xl p-3 border border-blue-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
+              <div id="saas-step-2" onclick="scrollWithinSaas('saas-dept-pdm')" class="group bg-white rounded-xl p-3 border-2 border-blue-200 hover:border-blue-500 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 cursor-pointer transition">
                 <div class="space-y-1 flex-1">
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 flex-wrap">
                     <span class="px-2 py-0.5 bg-blue-600 text-white font-black text-[11px] rounded-full">STEP 2</span>
-                    <h5 class="text-sm font-black text-slate-900">要件定義 & UI/UX設計（設計）</h5>
+                    <h5 class="text-sm font-black text-slate-900 group-hover:text-blue-700 transition">要件定義 & UI/UX設計（設計）</h5>
+                    <span class="text-[10px] font-black bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200">
+                      👉 上の「PdM部」へジャンプ ➔
+                    </span>
                   </div>
                   <div class="bg-blue-50 text-blue-950 font-bold text-[11px] p-1.5 rounded">
-                    💡 サルでもわかる解説：使いやすい画面のデザインを描き、エンジニアが作れる仕様書に落とし込む段階！
+                    💡 概要・ポイント：使いやすい画面のデザインを描き、エンジニアが作れる仕様書に落とし込む段階！
                   </div>
                   <div class="text-[11px] text-slate-700 font-bold">
                     👤 <b>主要職種：</b> UI/UXデザイナー、Technical PdM、システムアーキテクト
@@ -2275,14 +2323,17 @@
               <div class="text-center text-blue-400 text-xs font-black">↓</div>
 
               <!-- Step 3 -->
-              <div class="bg-white rounded-xl p-3 border border-indigo-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
+              <div id="saas-step-3" onclick="scrollWithinSaas('saas-dept-eng')" class="group bg-white rounded-xl p-3 border-2 border-indigo-200 hover:border-indigo-500 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 cursor-pointer transition">
                 <div class="space-y-1 flex-1">
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 flex-wrap">
                     <span class="px-2 py-0.5 bg-indigo-600 text-white font-black text-[11px] rounded-full">STEP 3</span>
-                    <h5 class="text-sm font-black text-slate-900">開発 & テスト & デプロイ（DevOps）</h5>
+                    <h5 class="text-sm font-black text-slate-900 group-hover:text-indigo-700 transition">開発 & テスト & デプロイ（DevOps）</h5>
+                    <span class="text-[10px] font-black bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-200">
+                      👉 上の「開発統括本部」へジャンプ ➔
+                    </span>
                   </div>
                   <div class="bg-indigo-50 text-indigo-950 font-bold text-[11px] p-1.5 rounded">
-                    💡 サルでもわかる解説：実際にプログラムを書き、バグがないかテストしてクラウド（AWSなど）に公開する段階！
+                    💡 概要・ポイント：実際にプログラムを書き、バグがないかテストしてクラウド（AWSなど）に公開する段階！
                   </div>
                   <div class="text-[11px] text-slate-700 font-bold">
                     👤 <b>主要職種：</b> CTO / VPoE、フロントエンド/バックエンドエンジニア、QA、SRE
@@ -2294,17 +2345,20 @@
               <div class="text-center text-indigo-400 text-xs font-black">↓</div>
 
               <!-- Step 4 -->
-              <div class="bg-white rounded-xl p-3 border border-emerald-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
+              <div id="saas-step-4" onclick="scrollWithinSaas('saas-dept-revops')" class="group bg-white rounded-xl p-3 border-2 border-emerald-200 hover:border-emerald-500 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 cursor-pointer transition">
                 <div class="space-y-1 flex-1">
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 flex-wrap">
                     <span class="px-2 py-0.5 bg-emerald-600 text-white font-black text-[11px] rounded-full">STEP 4</span>
-                    <h5 class="text-sm font-black text-slate-900">GTM（マーケティング & 営業・リリース）</h5>
+                    <h5 class="text-sm font-black text-slate-900 group-hover:text-emerald-700 transition">GTM（マーケティング & 営業・リリース）</h5>
+                    <span class="text-[10px] font-black bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200">
+                      👉 上の「事業推進部 (RevOps)」へジャンプ ➔
+                    </span>
                   </div>
                   <div class="bg-emerald-50 text-emerald-950 font-bold text-[11px] p-1.5 rounded">
-                    💡 サルでもわかる解説：広告や商談で見込み客を獲得し、初期ユーザーに契約・課金してもらう段階！
+                    💡 概要・ポイント：広告や商談で見込み客を獲得し、初期ユーザーに契約・課金してもらう段階！
                   </div>
                   <div class="text-[11px] text-slate-700 font-bold">
-                    👤 <b>主要職種：</b> PMM（Product Marketing）、インサイドセールス（SDR）、営業（AE）
+                    👤 <b>主要職種：</b> PMM（Product Marketing）、インサイドセールス（SDR）、営業（AE）、RevOps
                   </div>
                 </div>
                 <span class="text-[11px] font-black bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-lg shrink-0">KPI: CAC / ARR / 受注率</span>
@@ -2313,14 +2367,17 @@
               <div class="text-center text-emerald-400 text-xs font-black">↓</div>
 
               <!-- Step 5 -->
-              <div class="bg-white rounded-xl p-3 border border-amber-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
+              <div id="saas-step-5" onclick="scrollWithinSaas('saas-dept-cs')" class="group bg-white rounded-xl p-3 border-2 border-amber-200 hover:border-amber-500 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 cursor-pointer transition">
                 <div class="space-y-1 flex-1">
-                  <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2 flex-wrap">
                     <span class="px-2 py-0.5 bg-amber-600 text-white font-black text-[11px] rounded-full">STEP 5 (下流・継続)</span>
-                    <h5 class="text-sm font-black text-slate-900">カスタマーサクセス & 改善ループ（CS & Churn防止）</h5>
+                    <h5 class="text-sm font-black text-slate-900 group-hover:text-amber-800 transition">カスタマーサクセス & 改善ループ（CS & Churn防止）</h5>
+                    <span class="text-[10px] font-black bg-amber-50 text-amber-900 px-2 py-0.5 rounded border border-amber-200">
+                      👉 上の「CS統括部」へジャンプ ➔
+                    </span>
                   </div>
                   <div class="bg-amber-50 text-amber-950 font-bold text-[11px] p-1.5 rounded">
-                    💡 サルでもわかる解説：使いこなせない顧客を助けて解約を防ぎ、追加契約（アップセル）をもらう段階！
+                    💡 概要・ポイント：使いこなせない顧客を助けて解約を防ぎ、追加契約（アップセル）をもらう段階！
                   </div>
                   <div class="text-[11px] text-slate-700 font-bold">
                     👤 <b>主要職種：</b> CSM（Customer Success Manager）、サポート、RevOps
@@ -2482,7 +2539,7 @@
               <h3 class="text-base font-black text-slate-900">アイデア創出 & PMF検証（企画）</h3>
             </div>
             <div class="bg-cyan-50 text-cyan-950 font-bold text-xs p-2 rounded-lg">
-              💡 サルでもわかる解説：「誰のどんな困りごとを解決するか」仮説を立て、売れるか顧客に聞きまくる段階！
+              💡 概要・ポイント：「誰のどんな困りごとを解決するか」仮説を立て、売れるか顧客に聞きまくる段階！
             </div>
             <div class="text-[11px] text-slate-700 font-bold">
               👤 <b>主要職種：</b> PdM（プロダクトマネージャー）、BizDev（事業開発）、CPO
@@ -2501,7 +2558,7 @@
               <h3 class="text-base font-black text-slate-900">要件定義 & UI/UX設計（設計）</h3>
             </div>
             <div class="bg-blue-50 text-blue-950 font-bold text-xs p-2 rounded-lg">
-              💡 サルでもわかる解説：使いやすい画面のデザインを描き、エンジニアが作れる仕様書に落とし込む段階！
+              💡 概要・ポイント：使いやすい画面のデザインを描き、エンジニアが作れる仕様書に落とし込む段階！
             </div>
             <div class="text-[11px] text-slate-700 font-bold">
               👤 <b>主要職種：</b> UI/UXデザイナー、Technical PdM、システムアーキテクト
@@ -2520,7 +2577,7 @@
               <h3 class="text-base font-black text-slate-900">開発 & テスト & デプロイ（DevOps）</h3>
             </div>
             <div class="bg-blue-50 text-blue-950 font-bold text-xs p-2 rounded-lg">
-              💡 サルでもわかる解説：実際にプログラムを書き、バグがないかテストしてクラウド（AWSなど）に公開する段階！
+              💡 概要・ポイント：実際にプログラムを書き、バグがないかテストしてクラウド（AWSなど）に公開する段階！
             </div>
             <div class="text-[11px] text-slate-700 font-bold">
               👤 <b>主要職種：</b> CTO / VPoE、フロントエンド/バックエンドエンジニア、QA、SRE
@@ -2539,7 +2596,7 @@
               <h3 class="text-base font-black text-slate-900">GTM（マーケティング & 営業・リリース）</h3>
             </div>
             <div class="bg-emerald-50 text-emerald-950 font-bold text-xs p-2 rounded-lg">
-              💡 サルでもわかる解説：広告や商談で見込み客を獲得し、初期ユーザーに契約・課金してもらう段階！
+              💡 概要・ポイント：広告や商談で見込み客を獲得し、初期ユーザーに契約・課金してもらう段階！
             </div>
             <div class="text-[11px] text-slate-700 font-bold">
               👤 <b>主要職種：</b> PMM（Product Marketing）、インサイドセールス（SDR）、営業（AE）
@@ -2558,7 +2615,7 @@
               <h3 class="text-base font-black text-slate-900">カスタマーサクセス & 改善ループ（CS & Churn防止）</h3>
             </div>
             <div class="bg-amber-50 text-amber-950 font-bold text-xs p-2 rounded-lg">
-              💡 サルでもわかる解説：使いこなせない顧客を助けて解約を防ぎ、追加契約（アップセル）をもらう段階！
+              💡 概要・ポイント：使いこなせない顧客を助けて解約を防ぎ、追加契約（アップセル）をもらう段階！
             </div>
             <div class="text-[11px] text-slate-700 font-bold">
               👤 <b>主要職種：</b> CSM（Customer Success Manager）、サポート、RevOps
@@ -2579,8 +2636,105 @@
           半導体製造・装置・検査フロー（上流から下流までの縦型マップ）
         </h2>
         <p class="text-xs font-bold text-slate-600">
-          全工程のイラスト図解、装置・検査内容、代表企業名、および初心者向けの5秒解説付き。
+          全工程のイラスト図解、装置・検査内容、代表企業名、および初心者向けのわかりやすいポイント解説付き。
         </p>
+      </section>
+
+      <!-- ================= そもそも半導体とは？（入門解説 & 実物ビジュアル） ================= -->
+      <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-5 md:p-6 shadow-md border border-indigo-900/60 space-y-4">
+        <div class="flex items-center gap-2.5">
+          <span class="text-2xl">💡</span>
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider text-amber-300 bg-amber-400/20 px-2.5 py-0.5 rounded-full border border-amber-400/30">基礎知識</span>
+            <h3 class="text-lg md:text-xl font-black font-rounded text-white mt-1">
+              そもそも「半導体（Semiconductor）」ってなに？
+            </h3>
+          </div>
+        </div>
+
+        <!-- 30秒でわかる要約 -->
+        <p class="text-xs md:text-sm text-slate-200 font-bold leading-relaxed bg-white/5 p-3.5 rounded-xl border border-white/10">
+          半導体とは、電気をよく通す<b>「導体（鉄や銅）」</b>と、電気を通さない<b>「絶縁体（ゴムやガラス）」</b>の<b>ちょうど中間の性質</b>を持つ物質（主にシリコン/ケイ素）のこと。<br>
+          電気を通したり止めたり（ON/OFF）を1秒間に何十億回も切り替えることで、<b>「0と1のデジタル計算・記憶・制御」を行う、あらゆる電化製品の『頭脳』</b>です。
+        </p>
+
+        <!-- 写真ビジュアル & 形状の進化 -->
+        <div>
+          <div class="text-xs font-black text-amber-300 mb-2 flex items-center gap-1">
+            <span>📸</span> 実物はどんな姿？（材料の「円盤」から、機械の中の「黒いチップ」へ）
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- 写真 1: シリコンウェハ -->
+            <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex flex-col justify-between space-y-2">
+              <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-800 relative shadow-inner">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                     alt="シリコンウェハと集積回路" 
+                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Silicon+Wafer';">
+                <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-[10px] font-black px-2 py-0.5 rounded text-white backdrop-blur">① 材料（ウェハ）</span>
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-blue-200">シリコンウェハ（直径約30cm）</h4>
+                <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                  高純度シリコンを鏡のように磨いた丸い薄板。この表面にナノ単位で回路を何百層も焼き付けます。
+                </p>
+              </div>
+            </div>
+
+            <!-- 写真 2: パッケージ化されたチップ -->
+            <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex flex-col justify-between space-y-2">
+              <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-800 relative shadow-inner">
+                <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" 
+                     alt="マイクロチップ・CPU" 
+                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Semiconductor+Chip';">
+                <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-[10px] font-black px-2 py-0.5 rounded text-white backdrop-blur">② 完成品（ICチップ）</span>
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-amber-200">ICチップ / プロセッサ（CPU・GPU）</h4>
+                <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                  ウェハから四角く切り出し、黒い樹脂で保護して端子をつけた状態。指先サイズに数十億個のトランジスタが入っています。
+                </p>
+              </div>
+            </div>
+
+            <!-- 写真 3: 電子基板に載った半導体 -->
+            <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex flex-col justify-between space-y-2">
+              <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-800 relative shadow-inner">
+                <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80" 
+                     alt="電子基板・マザーボードに搭載された半導体" 
+                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Motherboard+PCB';">
+                <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-[10px] font-black px-2 py-0.5 rounded text-white backdrop-blur">③ 搭載（電子基板）</span>
+              </div>
+              <div>
+                <h4 class="text-xs font-black text-emerald-200">基板（スマホ・自動車・サーバーの中）</h4>
+                <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                  緑や黒の基板にはんだ付けされ、スマホの画面操作、車の自動ブレーキ、AIチャットの計算を裏で動かしています。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3大機能のクイック解説 -->
+        <div class="bg-black/30 rounded-xl p-3 border border-white/10">
+          <div class="text-[11px] font-black text-indigo-300 mb-1.5">🎯 半導体のおもな3大役割（何に使われている？）</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-[11px]">
+            <div class="bg-white/5 p-2 rounded-lg">
+              <span class="text-amber-300 font-black">① 計算する（ロジック半導体）</span>
+              <p class="text-slate-300 mt-0.5 leading-snug">CPU, GPU, AI専用チップ。人間でいう「大脳」。パソコンやスマホの頭脳。</p>
+            </div>
+            <div class="bg-white/5 p-2 rounded-lg">
+              <span class="text-cyan-300 font-black">② 覚える（メモリ半導体）</span>
+              <p class="text-slate-300 mt-0.5 leading-snug">DRAM, NANDフラッシュ。人間でいう「記憶」。写真や動画、データを一時・恒久保存。</p>
+            </div>
+            <div class="bg-white/5 p-2 rounded-lg">
+              <span class="text-emerald-300 font-black">③ 電気を制御する（パワー半導体）</span>
+              <p class="text-slate-300 mt-0.5 leading-snug">EV（電気自動車）やエアコンで、高電圧を効率よくモーターに送る筋肉の役目。</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="space-y-3 max-w-4xl mx-auto">
@@ -2599,7 +2753,7 @@
               <h3 class="font-black text-slate-900 text-sm">シリコンウェハ製造工程</h3>
             </div>
             <div class="bg-slate-100 text-slate-800 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：超高純度のケイ素を溶かしてインゴットを作り、薄い円盤状にスライスして鏡面に磨き上げる土台作り！
+              💡 概要・ポイント：超高純度のケイ素を溶かしてインゴットを作り、薄い円盤状にスライスして鏡面に磨き上げる土台作り！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>検査・装置：</b> ウェハ平坦度検査（日立ハイテク）、表面欠陥検査（KLA）<br>
@@ -2629,7 +2783,7 @@
               <h3 class="font-black text-slate-900 text-sm">フォトマスク作成工程（回路の原版）</h3>
             </div>
             <div class="bg-indigo-50 text-indigo-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：設計図（EDA）から、回路パターンを正確に光で焼き付けるための「超精密なネガフィルム原版」を作る！
+              💡 概要・ポイント：設計図（EDA）から、回路パターンを正確に光で焼き付けるための「超精密なネガフィルム原版」を作る！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>検査・装置：</b> フォトマスク欠陥検査装置（レーザーテック）、電子ビーム描画装置（日本電子）<br>
@@ -2656,7 +2810,7 @@
               <h3 class="font-black text-slate-900 text-sm">洗浄工程（Cleaning）</h3>
             </div>
             <div class="bg-sky-50 text-sky-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：微小なゴミや金属不純物を薬液や超純水で洗い流し、原子レベルでクリーンな状態にする！
+              💡 概要・ポイント：微小なゴミや金属不純物を薬液や超純水で洗い流し、原子レベルでクリーンな状態にする！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>装置：</b> バッチ式・枚葉式洗浄装置（SCREENホールディングス、東京エレクトロン）
@@ -2682,7 +2836,7 @@
               <h3 class="font-black text-slate-900 text-sm">熱酸化 & 薄膜形成工程（CVD / PVD / ALD）</h3>
             </div>
             <div class="bg-blue-50 text-blue-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：ウェハの表面に電気を通す膜（金属）や、電気を遮る絶縁膜（酸化膜）をナノ単位で塗布・成膜する！
+              💡 概要・ポイント：ウェハの表面に電気を通す膜（金属）や、電気を遮る絶縁膜（酸化膜）をナノ単位で塗布・成膜する！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>装置：</b> 成膜装置・熱処理炉（Applied Materials、東京エレクトロン、日立国際電気）
@@ -2711,7 +2865,7 @@
               <h3 class="font-black text-slate-900 text-sm">フォトリソグラフィ工程（塗布 ➔ 露光 ➔ 現像）</h3>
             </div>
             <div class="bg-purple-50 text-purple-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：感光剤（レジスト）を塗り、フォトマスクを通して光（EUV/DUV）を当て、回路の影を焼き付ける最重要工程！
+              💡 概要・ポイント：感光剤（レジスト）を塗り、フォトマスクを通して光（EUV/DUV）を当て、回路の影を焼き付ける最重要工程！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>露光装置：</b> ASML（EUV独占）、ニコン、キヤノン<br>
@@ -2738,7 +2892,7 @@
               <h3 class="font-black text-slate-900 text-sm">エッチング ➔ イオン注入 ➔ 平坦化（CMP研磨）</h3>
             </div>
             <div class="bg-amber-50 text-amber-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：不要な膜をプラズマガスで削り（エッチング）、電気の通りやすさを変える不純物を打ち込み、凹凸をナノ研磨（CMP）する！
+              💡 概要・ポイント：不要な膜をプラズマガスで削り（エッチング）、電気の通りやすさを変える不純物を打ち込み、凹凸をナノ研磨（CMP）する！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>エッチング装置：</b> Lam Research、東京エレクトロン、Applied Materials<br>
@@ -2764,7 +2918,7 @@
               <h3 class="font-black text-slate-900 text-sm">ウェハテスト・外観検査（Wafer Inspection）</h3>
             </div>
             <div class="bg-emerald-50 text-emerald-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：切り分ける前のウェハにプローブ（微細な針）を刺して電気を通し、どのチップが不良品かを判定！
+              💡 概要・ポイント：切り分ける前のウェハにプローブ（微細な針）を刺して電気を通し、どのチップが不良品かを判定！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>プローバー装置：</b> 東京精密、東京エレクトロン<br>
@@ -2790,7 +2944,7 @@
               <h3 class="font-black text-slate-900 text-sm">ダイシング工程（ウェハ切断）</h3>
             </div>
             <div class="bg-rose-50 text-rose-950 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：完成したウェハを、超極薄ブレードやレーザーで1粒ずつの四角いチップ（ダイ）に切り分ける！
+              💡 概要・ポイント：完成したウェハを、超極薄ブレードやレーザーで1粒ずつの四角いチップ（ダイ）に切り分ける！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>ダイシングソー・研削装置：</b> DISCO（ディスコ：世界シェア首位）、東京精密
@@ -2818,7 +2972,7 @@
               <h3 class="font-black text-slate-900 text-sm">ボンディング ➔ モールディング ➔ 最終検査</h3>
             </div>
             <div class="bg-stone-100 text-stone-900 font-bold p-1.5 rounded text-[11px]">
-              💡 5秒解説：髪の毛より細い金線で基板と繋ぎ、黒い樹脂で固めて保護し、最後に過酷な温度・電圧をかけて出荷前テスト！
+              💡 概要・ポイント：髪の毛より細い金線で基板と繋ぎ、黒い樹脂で固めて保護し、最後に過酷な温度・電圧をかけて出荷前テスト！
             </div>
             <div class="text-[11px] text-slate-700">
               <b>後工程受託（OSAT）：</b> ASE、Amkor<br>
@@ -3427,10 +3581,6 @@
             if (btnLabel) {
               btnLabel.textContent = isNowHidden ? '▼ 詳細' : '▲ 閉じる';
             }
-            const titleIndicator = targetCard.querySelector('.title-detail-indicator');
-            if (titleIndicator) {
-              titleIndicator.textContent = isNowHidden ? '▼詳細' : '▲閉じる';
-            }
           }
         }
       }
@@ -3440,6 +3590,15 @@
         setTimeout(() => {
           targetCard.classList.remove('ring-4', 'ring-blue-400');
         }, 1500);
+      }
+    }
+
+    function scrollWithinSaas(targetElementId) {
+      const el = document.getElementById(targetElementId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('jump-spotlight');
+        setTimeout(() => el.classList.remove('jump-spotlight'), 2200);
       }
     }
 
