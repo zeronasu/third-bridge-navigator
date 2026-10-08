@@ -1521,40 +1521,41 @@
     <!-- ================= VIEW 2: INDUSTRY-SPECIFIC MAP ================= -->
     <main id="view-industry" class="hidden space-y-5">
       <!-- Industry Intro Header -->
-      <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <div>
-            <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-1">
-              <span>🏢</span> 業界ごとの独自構造をマスター
-            </div>
-            <h2 class="text-xl md:text-2xl font-black font-rounded text-slate-900">
+      <section class="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-slate-200 space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <span class="text-2xl">🏢</span>
+            <h2 class="text-xl md:text-2xl font-black font-rounded text-slate-900 whitespace-nowrap">
               業態別部門マップ
             </h2>
+            <div class="inline-flex items-center gap-1.5 bg-purple-100 text-purple-900 text-xs font-black px-3 py-1 rounded-full whitespace-nowrap">
+              業界ごとの独自構造をマスター
+            </div>
           </div>
-          <!-- Industry Switcher Tabs -->
-          <div class="flex flex-wrap gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
-            <button onclick="switchIndustryTab('sier')" id="ind-btn-sier" class="px-3 py-2 rounded-lg font-black text-xs transition bg-white text-blue-700 shadow-xs">
-              💻 SIer・ITベンダー
-            </button>
-            <button onclick="switchIndustryTab('finance')" id="ind-btn-finance" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
-              🏦 金融（銀行・証券・IBD・アセマネ）
-            </button>
-            <button onclick="switchIndustryTab('saas')" id="ind-btn-saas" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
-              📱 オンライン・SaaS
-            </button>
-            <button onclick="switchIndustryTab('retail')" id="ind-btn-retail" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
-              🛒 小売・EC・流通
-            </button>
-            <button onclick="switchIndustryTab('datacenter')" id="ind-btn-datacenter" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
-              🏬 データセンター（DC / AI基盤）
-            </button>
-            <button onclick="switchIndustryTab('realestate')" id="ind-btn-realestate" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
-              🏗️ 不動産（デベロッパー・AM・PM）
-            </button>
-            <button onclick="switchIndustryTab('semicon')" id="ind-btn-semicon" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
-              ⚡ 半導体（業界構造 & 全製造工程）
-            </button>
-          </div>
+        </div>
+        <!-- Industry Switcher Tabs -->
+        <div class="flex flex-wrap gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+          <button onclick="switchIndustryTab('sier')" id="ind-btn-sier" class="px-3 py-2 rounded-lg font-black text-xs transition bg-white text-blue-700 shadow-xs whitespace-nowrap">
+            💻 SIer・ITベンダー
+          </button>
+          <button onclick="switchIndustryTab('finance')" id="ind-btn-finance" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            🏦 金融（銀行・証券・IBD・アセマネ）
+          </button>
+          <button onclick="switchIndustryTab('saas')" id="ind-btn-saas" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            📱 オンライン・SaaS
+          </button>
+          <button onclick="switchIndustryTab('retail')" id="ind-btn-retail" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            🛒 小売・EC・流通
+          </button>
+          <button onclick="switchIndustryTab('datacenter')" id="ind-btn-datacenter" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            🏬 データセンター（DC / AI基盤）
+          </button>
+          <button onclick="switchIndustryTab('realestate')" id="ind-btn-realestate" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            🏗️ 不動産（デベロッパー・AM・PM）
+          </button>
+          <button onclick="switchIndustryTab('semicon')" id="ind-btn-semicon" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900 whitespace-nowrap">
+            ⚡ 半導体（業界構造 & 全製造工程）
+          </button>
         </div>
 
         <!-- SaaS vs SIer Crucial Guide (Shown ONLY for SIer and SaaS tabs) -->
