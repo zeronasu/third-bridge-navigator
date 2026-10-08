@@ -96,9 +96,6 @@
         <button id="tab-btn-industry" onclick="switchView('industry')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl font-black text-xs md:text-sm transition-all text-slate-600 hover:text-slate-900">
           <span>🏢</span> 業態別マップ
         </button>
-        <button id="tab-btn-semicon" onclick="switchView('semicon')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl font-black text-xs md:text-sm transition-all text-slate-600 hover:text-slate-900">
-          <span>⚡</span> 半導体工程
-        </button>
         <button id="tab-btn-seniority" onclick="switchView('seniority')" class="flex items-center gap-2 px-4 py-2.5 rounded-xl font-black text-xs md:text-sm transition-all text-slate-600 hover:text-slate-900">
           <span>👑</span> Seniority Map
         </button>
@@ -1548,6 +1545,15 @@
             <button onclick="switchIndustryTab('retail')" id="ind-btn-retail" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
               🛒 小売・EC・流通
             </button>
+            <button onclick="switchIndustryTab('datacenter')" id="ind-btn-datacenter" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
+              🏬 データセンター（DC / AI基盤）
+            </button>
+            <button onclick="switchIndustryTab('realestate')" id="ind-btn-realestate" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
+              🏗️ 不動産（デベロッパー・AM・PM）
+            </button>
+            <button onclick="switchIndustryTab('semicon')" id="ind-btn-semicon" class="px-3 py-2 rounded-lg font-black text-xs transition text-slate-600 hover:text-slate-900">
+              ⚡ 半導体（業界構造 & 全製造工程）
+            </button>
           </div>
         </div>
 
@@ -2522,473 +2528,1222 @@
           </div>
         </div>
       </div>
-    </main>
 
-    <!-- ================= VIEW: SAAS PRODUCT LIFECYCLE ================= -->
-    <main id="view-saas" class="hidden space-y-5">
-      <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
-        <div class="inline-flex items-center gap-2 bg-cyan-100 text-cyan-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-          <span>📱</span> SaaS Product Life Cycle
-        </div>
-        <h2 class="text-xl md:text-2xl font-black font-rounded text-slate-900 mb-1">
-          SaaS事業：上流から下流までの製品開発・運用の流れ
-        </h2>
-        <p class="text-xs font-bold text-slate-600">
-          企画からリリース、顧客継続（CS）までの5段階フローと、各工程の関与部門・役職・KPIを完全網羅。
-        </p>
-      </section>
-
-      <section class="space-y-3 max-w-4xl mx-auto">
-        <!-- Step 1 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-cyan-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <div class="space-y-1">
+      <!-- 5. Data Center (DC / Hyperscale / Colocation) -->
+      <div id="ind-pane-datacenter" class="industry-pane hidden space-y-4">
+        <div class="bg-violet-50/70 border-2 border-violet-200 rounded-2xl p-4 md:p-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-violet-200 pb-3 mb-4 gap-2">
             <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 bg-cyan-600 text-white font-black text-xs rounded-full">STEP 1 (最上流)</span>
-              <h3 class="text-base font-black text-slate-900">アイデア創出 & PMF検証（企画）</h3>
-            </div>
-            <div class="bg-cyan-50 text-cyan-950 font-bold text-xs p-2 rounded-lg">
-              💡 概要・ポイント：「誰のどんな困りごとを解決するか」仮説を立て、売れるか顧客に聞きまくる段階！
-            </div>
-            <div class="text-[11px] text-slate-700 font-bold">
-              👤 <b>主要職種：</b> PdM（プロダクトマネージャー）、BizDev（事業開発）、CPO
-            </div>
-          </div>
-          <span class="text-xs font-black bg-cyan-100 text-cyan-800 px-3 py-1 rounded-lg shrink-0">KPI: PMF / 検証速度</span>
-        </div>
-
-        <div class="text-center text-cyan-400 text-base font-black">↓</div>
-
-        <!-- Step 2 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-blue-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 bg-blue-600 text-white font-black text-xs rounded-full">STEP 2</span>
-              <h3 class="text-base font-black text-slate-900">要件定義 & UI/UX設計（設計）</h3>
-            </div>
-            <div class="bg-blue-50 text-blue-950 font-bold text-xs p-2 rounded-lg">
-              💡 概要・ポイント：使いやすい画面のデザインを描き、エンジニアが作れる仕様書に落とし込む段階！
-            </div>
-            <div class="text-[11px] text-slate-700 font-bold">
-              👤 <b>主要職種：</b> UI/UXデザイナー、Technical PdM、システムアーキテクト
-            </div>
-          </div>
-          <span class="text-xs font-black bg-blue-100 text-blue-800 px-3 py-1 rounded-lg shrink-0">ツール: Figma / Jira</span>
-        </div>
-
-        <div class="text-center text-blue-400 text-base font-black">↓</div>
-
-        <!-- Step 3 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 bg-indigo-600 text-white font-black text-xs rounded-full">STEP 3</span>
-              <h3 class="text-base font-black text-slate-900">開発 & テスト & デプロイ（DevOps）</h3>
-            </div>
-            <div class="bg-blue-50 text-blue-950 font-bold text-xs p-2 rounded-lg">
-              💡 概要・ポイント：実際にプログラムを書き、バグがないかテストしてクラウド（AWSなど）に公開する段階！
-            </div>
-            <div class="text-[11px] text-slate-700 font-bold">
-              👤 <b>主要職種：</b> CTO / VPoE、フロントエンド/バックエンドエンジニア、QA、SRE
-            </div>
-          </div>
-          <span class="text-xs font-black bg-indigo-100 text-indigo-800 px-3 py-1 rounded-lg shrink-0">KPI: 障害率 / 稼働率</span>
-        </div>
-
-        <div class="text-center text-indigo-400 text-base font-black">↓</div>
-
-        <!-- Step 4 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 bg-emerald-600 text-white font-black text-xs rounded-full">STEP 4</span>
-              <h3 class="text-base font-black text-slate-900">GTM（マーケティング & 営業・リリース）</h3>
-            </div>
-            <div class="bg-emerald-50 text-emerald-950 font-bold text-xs p-2 rounded-lg">
-              💡 概要・ポイント：広告や商談で見込み客を獲得し、初期ユーザーに契約・課金してもらう段階！
-            </div>
-            <div class="text-[11px] text-slate-700 font-bold">
-              👤 <b>主要職種：</b> PMM（Product Marketing）、インサイドセールス（SDR）、営業（AE）
-            </div>
-          </div>
-          <span class="text-xs font-black bg-emerald-100 text-emerald-800 px-3 py-1 rounded-lg shrink-0">KPI: CAC / ARR / 受注率</span>
-        </div>
-
-        <div class="text-center text-emerald-400 text-base font-black">↓</div>
-
-        <!-- Step 5 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 bg-amber-600 text-white font-black text-xs rounded-full">STEP 5 (下流・継続)</span>
-              <h3 class="text-base font-black text-slate-900">カスタマーサクセス & 改善ループ（CS & Churn防止）</h3>
-            </div>
-            <div class="bg-amber-50 text-amber-950 font-bold text-xs p-2 rounded-lg">
-              💡 概要・ポイント：使いこなせない顧客を助けて解約を防ぎ、追加契約（アップセル）をもらう段階！
-            </div>
-            <div class="text-[11px] text-slate-700 font-bold">
-              👤 <b>主要職種：</b> CSM（Customer Success Manager）、サポート、RevOps
-            </div>
-          </div>
-          <span class="text-xs font-black bg-amber-100 text-amber-800 px-3 py-1 rounded-lg shrink-0">KPI: Churn Rate / NRR</span>
-        </div>
-      </section>
-    </main>
-
-    <!-- ================= VIEW: SEMICONDUCTOR BLUEPRINT ================= -->
-    <main id="view-semicon" class="hidden space-y-5">
-      <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
-        <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-          <span>⚡</span> Semiconductor Supply Chain Blueprint
-        </div>
-        <h2 class="text-xl md:text-2xl font-black font-rounded text-slate-900 mb-1">
-          半導体製造・装置・検査フロー（上流から下流までの縦型マップ）
-        </h2>
-        <p class="text-xs font-bold text-slate-600">
-          全工程のイラスト図解、装置・検査内容、代表企業名、および初心者向けのわかりやすいポイント解説付き。
-        </p>
-      </section>
-
-      <!-- ================= そもそも半導体とは？（入門解説 & 実物ビジュアル） ================= -->
-      <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-5 md:p-6 shadow-md border border-indigo-900/60 space-y-4">
-        <div class="flex items-center gap-2.5">
-          <span class="text-2xl">💡</span>
-          <div>
-            <span class="text-[10px] font-black uppercase tracking-wider text-amber-300 bg-amber-400/20 px-2.5 py-0.5 rounded-full border border-amber-400/30">基礎知識</span>
-            <h3 class="text-lg md:text-xl font-black font-rounded text-white mt-1">
-              そもそも「半導体（Semiconductor）」ってなに？
-            </h3>
-          </div>
-        </div>
-
-        <!-- 30秒でわかる要約 -->
-        <p class="text-xs md:text-sm text-slate-200 font-bold leading-relaxed bg-white/5 p-3.5 rounded-xl border border-white/10">
-          半導体とは、電気をよく通す<b>「導体（鉄や銅）」</b>と、電気を通さない<b>「絶縁体（ゴムやガラス）」</b>の<b>ちょうど中間の性質</b>を持つ物質（主にシリコン/ケイ素）のこと。<br>
-          電気を通したり止めたり（ON/OFF）を1秒間に何十億回も切り替えることで、<b>「0と1のデジタル計算・記憶・制御」を行う、あらゆる電化製品の『頭脳』</b>です。
-        </p>
-
-        <!-- 写真ビジュアル & 形状の進化 -->
-        <div>
-          <div class="text-xs font-black text-amber-300 mb-2 flex items-center gap-1">
-            <span>📸</span> 実物はどんな姿？（材料の「円盤」から、機械の中の「黒いチップ」へ）
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <!-- 写真 1: シリコンウェハ -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex flex-col justify-between space-y-2">
-              <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-800 relative shadow-inner">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
-                     alt="シリコンウェハと集積回路" 
-                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Silicon+Wafer';">
-                <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-[10px] font-black px-2 py-0.5 rounded text-white backdrop-blur">① 材料（ウェハ）</span>
-              </div>
+              <span class="text-2xl">🏬</span>
               <div>
-                <h4 class="text-xs font-black text-blue-200">シリコンウェハ（直径約30cm）</h4>
-                <p class="text-[11px] text-slate-300 mt-1 leading-snug">
-                  高純度シリコンを鏡のように磨いた丸い薄板。この表面にナノ単位で回路を何百層も焼き付けます。
+                <h3 class="text-lg md:text-xl font-black text-violet-950 font-rounded">
+                  データセンター（DC事業者 / コロケーション / ハイパースケール / AI基盤）
+                </h3>
+                <p class="text-xs text-violet-800 font-bold">「電力調達」「冷却・ファシリティ設計」「ラック貸出（リーシング）」「24/7運用」の4大中枢</p>
+              </div>
+            </div>
+            <span class="text-xs font-black bg-violet-200 text-violet-900 px-3 py-1 rounded-full self-start md:self-auto">AI・クラウドの物理インフラ</span>
+          </div>
+
+          <!-- そもそもデータセンターとは？ & チップ/CPU/GPU解説 -->
+          <div class="bg-gradient-to-r from-slate-900 via-violet-950 to-slate-900 text-white rounded-xl p-4 mb-4 border border-violet-800/60 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">💡</span>
+              <span class="text-sm font-black text-amber-300">そもそも「データセンター（DC）」って何なの？</span>
+            </div>
+            <p class="text-xs text-slate-200 font-bold leading-relaxed">
+              データセンターとは、インターネットやクラウド（AWSやChatGPTなど）を24時間365日動かし続けるための<b>「超巨大なサーバー専用マンション兼要塞」</b>です。<br>
+              世の中のアプリやWebサイト、AIの計算は、すべてこのデータセンターの中にある大量のコンピュータ（サーバー）の上で動いています。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs pt-1">
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10">
+                <span class="text-amber-300 font-black block mb-0.5">❓ なぜオフィスや家に置けないの？</span>
+                <p class="text-[11px] text-slate-300 leading-snug">
+                  サーバーは何百台も集まると「莫大な電気（一般家庭数万〜数十万世帯分）」を食い、「ドライヤー数百台分の熱」を放ち、「爆音のファン音」が鳴ります。普通のビルやオフィスではブレーカーが落ちて冷房も追いつきません。
+                </p>
+              </div>
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10">
+                <span class="text-cyan-300 font-black block mb-0.5">🛡️ 絶対に止まらない設備（要塞機能）</span>
+                <p class="text-[11px] text-slate-300 leading-snug">
+                  大地震でも壊れない「免震構造」、停電しても瞬時に電気を補う「超大型バッテリー（UPS）」と「自家発電機（数日分の重油タンク）」、指紋や網膜認証の厳重セキュリティで保護されています。
+                </p>
+              </div>
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10">
+                <span class="text-emerald-300 font-black block mb-0.5">🌐 通信の交差点（超高速ネットワーク）</span>
+                <p class="text-[11px] text-slate-300 leading-snug">
+                  海底ケーブルや日本全国の光ファイバー網が直結しており、世界中とミリ秒単位の遅延なしで大容量データを送受信できる「インターネットのハブ」になっています。
                 </p>
               </div>
             </div>
 
-            <!-- 写真 2: パッケージ化されたチップ -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex flex-col justify-between space-y-2">
-              <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-800 relative shadow-inner">
-                <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" 
-                     alt="マイクロチップ・CPU" 
-                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Semiconductor+Chip';">
-                <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-[10px] font-black px-2 py-0.5 rounded text-white backdrop-blur">② 完成品（ICチップ）</span>
+            <!-- チップ・CPU・GPUの基本解説 & 写真カード -->
+            <div class="bg-black/40 rounded-xl p-3 border border-violet-500/30 mt-3 space-y-2.5">
+              <div class="flex items-center justify-between flex-wrap gap-1">
+                <span class="text-xs font-black text-amber-300 flex items-center gap-1.5">
+                  <span>🧠</span> サーバーの中に入っている「チップ」「CPU」「GPU」って何？
+                </span>
+                <span class="text-[10px] bg-violet-600/80 text-white font-bold px-2 py-0.5 rounded">データセンターの主役</span>
               </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+                <!-- 写真 1: チップとは -->
+                <div class="bg-white/10 rounded-lg p-2.5 border border-white/10 flex flex-col justify-between">
+                  <div>
+                    <div class="aspect-video w-full rounded overflow-hidden bg-slate-800 mb-2">
+                      <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=500&q=80" 
+                           alt="半導体チップ" 
+                           class="w-full h-full object-cover"
+                           onerror="this.onerror=null; this.src='https://placehold.co/500x300/1e293b/94a3b8?text=Semiconductor+Chip';">
+                    </div>
+                    <span class="font-black text-amber-200 text-xs block">① そもそも「チップ」とは？</span>
+                    <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                      砂（ケイ素）から作った基板の上に、ナノ単位の超極小な電気回路を何十億個も焼き付けた四角い電子部品。電気信号を計算・記憶する「機械の細胞」です。
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 写真 2: CPU -->
+                <div class="bg-white/10 rounded-lg p-2.5 border border-white/10 flex flex-col justify-between">
+                  <div>
+                    <div class="aspect-video w-full rounded overflow-hidden bg-slate-800 mb-2">
+                      <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=500&q=80" 
+                           alt="CPUプロセッサ" 
+                           class="w-full h-full object-cover"
+                           onerror="this.onerror=null; this.src='https://placehold.co/500x300/1e293b/94a3b8?text=Intel+AMD+CPU';">
+                    </div>
+                    <span class="font-black text-blue-200 text-xs block">② CPU（中央演算処理装置）</span>
+                    <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                      <b>「なんでも器用にこなす秀才の頭脳」</b>。<br>
+                      数個〜数十個の高性能コアを持ち、OSの起動や複雑な命令を1つずつ順番に高速処理します。<br>
+                      🏢 <b>代表：</b>Intel (Core/Xeon), AMD (Ryzen/EPYC)
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 写真 3: GPU -->
+                <div class="bg-white/10 rounded-lg p-2.5 border border-white/10 flex flex-col justify-between">
+                  <div>
+                    <div class="aspect-video w-full rounded overflow-hidden bg-slate-800 mb-2">
+                      <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80" 
+                           alt="GPUグラフィックボード" 
+                           class="w-full h-full object-cover"
+                           onerror="this.onerror=null; this.src='https://placehold.co/500x300/1e293b/94a3b8?text=NVIDIA+GPU';">
+                    </div>
+                    <span class="font-black text-emerald-200 text-xs block">③ GPU（画像・並列演算装置）</span>
+                    <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                      <b>「単純計算を同時に数万回できる筋肉軍団」</b>。<br>
+                      数千個のコアで膨大な計算を一斉に行えるため、AI（ChatGPTなど）の学習・推論に不可欠な主役に！<br>
+                      🏢 <b>代表：</b>NVIDIA (H100/Blackwell), AMD
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 業界エコシステム構造（誰が誰に何を頼んでいるのか？） -->
+          <div class="bg-white border-2 border-violet-200 rounded-xl p-3.5 mb-4 shadow-xs space-y-2">
+            <div class="flex items-center gap-1.5 text-violet-950 font-black text-xs">
+              <span>🔄</span>
+              <span class="text-sm">データセンター業界の全体構造（エコシステム：誰が誰に何を頼んでいる？）</span>
+            </div>
+            <p class="text-[11px] text-slate-600 font-bold leading-normal">
+              「半導体メーカー」から「最終ユーザー」まで、データセンターを中心に以下の5段階のサプライチェーンが繋がっています。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-2 text-xs">
+              <div class="bg-slate-50 p-2 rounded-lg border border-slate-200 flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] bg-slate-200 text-slate-800 font-black px-1.5 py-0.5 rounded">① 半導体・ハード</span>
+                  <div class="font-black text-slate-900 mt-1">NVIDIA / AMD / Intel</div>
+                  <p class="text-[10px] text-slate-600 mt-0.5">GPUやCPUチップを設計・製造。</p>
+                </div>
+                <div class="text-[10px] text-slate-500 font-bold mt-1">➔ サーバーに組み込み</div>
+              </div>
+
+              <div class="bg-blue-50 p-2 rounded-lg border border-blue-200 flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] bg-blue-200 text-blue-900 font-black px-1.5 py-0.5 rounded">② サーバー製造</span>
+                  <div class="font-black text-blue-950 mt-1">Supermicro / Dell / HPE</div>
+                  <p class="text-[10px] text-slate-600 mt-0.5">GPUを積んだ棚型サーバー機器を製造。</p>
+                </div>
+                <div class="text-[10px] text-blue-700 font-bold mt-1">➔ クラウド事業者が購入</div>
+              </div>
+
+              <div class="bg-indigo-50 p-2 rounded-lg border border-indigo-200 flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] bg-indigo-200 text-indigo-900 font-black px-1.5 py-0.5 rounded">③ ハイパースケーラー</span>
+                  <div class="font-black text-indigo-950 mt-1">AWS / Azure / Google / OCI</div>
+                  <p class="text-[10px] text-slate-600 mt-0.5">クラウドサービスとして世界に貸し出す。</p>
+                </div>
+                <div class="text-[10px] text-indigo-700 font-bold mt-1">➔ DC事業者から箱を借りる</div>
+              </div>
+
+              <div class="bg-violet-100/70 p-2 rounded-lg border-2 border-violet-400 flex flex-col justify-between shadow-xs">
+                <div>
+                  <span class="text-[10px] bg-violet-600 text-white font-black px-1.5 py-0.5 rounded">④ DC事業者（ここ！）</span>
+                  <div class="font-black text-violet-950 mt-1">Equinix / Digital Realty / AirTrunk</div>
+                  <p class="text-[10px] text-violet-900 font-bold mt-0.5">土地・建物・特別高圧電源・冷却を貸し出す物理インフラ大家！</p>
+                </div>
+                <div class="text-[10px] text-violet-800 font-bold mt-1">➔ 回線を引いて稼働</div>
+              </div>
+
+              <div class="bg-emerald-50 p-2 rounded-lg border border-emerald-200 flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] bg-emerald-200 text-emerald-900 font-black px-1.5 py-0.5 rounded">⑤ 通信・IX / エンドユーザー</span>
+                  <div class="font-black text-emerald-950 mt-1">NTT / KDDI / JPIX / 一般企業</div>
+                  <p class="text-[10px] text-slate-600 mt-0.5">光回線でネット接続し、企業や個人がアプリ・AIを利用。</p>
+                </div>
+                <div class="text-[10px] text-emerald-700 font-bold mt-1">✅ サービス成立</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ハイパースケーラーとは？解説ボックス -->
+          <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl p-3.5 mb-4 border border-blue-700/60 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-base">☁️</span>
+                <span class="font-black text-amber-300 text-sm">【用語解説】「ハイパースケーラー（Hyperscaler）」って何？</span>
+              </div>
+              <p class="text-[11px] text-slate-200 leading-relaxed font-bold">
+                世界規模で超巨大なクラウドやWebサービスを運用し、<b>「必要に応じて何万台・何十万台ものサーバーを瞬時にスケール（拡張）できる超巨大IT企業」</b>のことです。<br>
+                代表例は <b>Amazon (AWS)、Microsoft (Azure)、Google (GCP)、Meta、Oracle</b> など。データセンター事業者にとって、彼らは1社でビル丸ごと（数十〜数百メガワット規模）を10年以上借りてくれる「超大口のVIP顧客」です。
+              </p>
+            </div>
+            <span class="text-[10px] bg-blue-500/50 text-blue-100 font-black px-2.5 py-1 rounded-lg shrink-0 border border-blue-400/40">
+              AWS / Azure / Google Cloud 等
+            </span>
+          </div>
+
+          <!-- Data Center Essential Guide Panel -->
+          <div class="bg-white border-2 border-violet-300 rounded-xl p-3.5 mb-4 shadow-xs">
+            <div class="flex items-center gap-1.5 text-violet-950 font-black text-xs mb-2">
+              <span>⚡</span>
+              <span class="text-sm">データセンターの2大ビジネスモデル（ホールセール vs コロケーション）</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div class="bg-violet-50/80 p-2.5 rounded-lg border border-violet-200">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-black text-violet-900 text-xs block">① コロケーション / リテールDC事業者</span>
+                  <span class="text-[10px] bg-violet-200 text-violet-900 font-black px-1.5 py-0.5 rounded">ラック単位貸し</span>
+                </div>
+                <p class="text-[11px] text-slate-700 leading-relaxed">
+                  一般企業、金融機関、SIer向けに「サーバーラック単位（1ラック〜数十ラック）」でスペース・電源・回線を貸し出す。<br>
+                  構内で他社やクラウドと自由に回線を直結できる「相互接続（Interconnection / キャリアニュートラル）」が強み！<br>
+                  🏢 <b>代表企業：</b>エクイニクス（Equinix）、デジタル・リアルティ、アット東京、さくらインターネット
+                </p>
+              </div>
+              <div class="bg-indigo-50/80 p-2.5 rounded-lg border border-indigo-200">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-black text-indigo-900 text-xs block">② ハイパースケール / ホールセールDC事業者</span>
+                  <span class="text-[10px] bg-indigo-200 text-indigo-900 font-black px-1.5 py-0.5 rounded">ビル1棟・MW単位貸し</span>
+                </div>
+                <p class="text-[11px] text-slate-700 leading-relaxed">
+                  メガクラウド（AWS / Microsoft / Google / Oracle）向けに「ビル1棟丸ごと」や「数十〜数百メガワット（MW）単位」で超大型貸出。<br>
+                  10〜15年の超長期契約を結び、安定した巨額賃料を得るビジネス。<br>
+                  🏢 <b>代表企業：</b>MCデジタル・リアルティ、AirTrunk、NTTグローバルデータセンター、Colt DCS、ESR
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Core Data Center Departments Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+            
+            <!-- 1. 用地取得・電力調達 -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-violet-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-violet-800 bg-violet-100 px-2 py-0.5 rounded">最大のボトルネック</span>
+                <button onclick="copyKeywords('Site Acquisition, Power Procurement, Utility Interconnection, PPA, Energy Strategy, Data Center Land Acquisition')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-violet-800 border border-violet-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                用地取得・電力調達部（Site Acquisition / Energy Strategy）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（用地仕入れ部 / 電力渉外部 / 開発企画課）</p>
+              <div class="bg-violet-50 p-2 rounded-lg text-xs font-bold text-violet-950">
+                👉 DC建設に必須の「広大な土地」と「特高受電（電力会社からの大容量電力）」を確保する人
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Site Selection, Power Interconnection, Energy Procurement</div>
+                <div>👤 <b>役職：</b>Director of Site Acquisition, Head of Energy Strategy</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-violet-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 'dc-power-diff')" class="w-full text-left px-2.5 py-1.5 bg-violet-100/60 hover:bg-violet-100 font-black text-violet-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】なぜDCで「電力調達」が最重要なのか？</span>
+                  <span id="dc-power-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="dc-power-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-violet-100 bg-white">
+                  <div>
+                    <span class="font-black text-violet-800">■ 特高受電（特別高圧 66kV〜154kV）交渉</span>
+                    <p class="text-slate-600 ml-1">AI用DCは1棟で数百MW（一般家庭数十万世帯分）を消費するため、電力会社（東電・関電等）の変電所容量を押さえるのが勝負！</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-violet-800">■ 再エネPPA（電力購入契約）調達</span>
+                    <p class="text-slate-600 ml-1">米大手ITは「100%再エネ」を義務付けているため、太陽光・風力の長期PPAを調達できるかが選定基準。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. ファシリティエンジニアリング・空調冷却設計 -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-violet-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-violet-800 bg-violet-100 px-2 py-0.5 rounded">冷却・電源設計</span>
+                <button onclick="copyKeywords('Data Center Facility, MEP Engineering, Critical Facilities, Liquid Cooling, DLC, Immersion Cooling, PUE, UPS, Chiller')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-violet-800 border border-violet-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                設備技術部（MEP / ファシリティ設計部）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Critical Facilities Design / 冷却設計 / 空調電気課）</p>
+              <div class="bg-violet-50 p-2 rounded-lg text-xs font-bold text-violet-950">
+                👉 サーバーの熱を逃がす「水冷・空冷・液冷」と、停電を防ぐ「UPS・非常用発電機」を設計する人
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>MEP Design, Critical Facilities Engineering, Liquid Cooling Lead</div>
+                <div>👤 <b>役職：</b>Chief Facility Engineer, MEP Director</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-violet-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 'dc-cooling-diff')" class="w-full text-left px-2.5 py-1.5 bg-violet-100/60 hover:bg-violet-100 font-black text-violet-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】空冷 vs ダイレクト水冷 (DLC) vs 液浸冷却</span>
+                  <span id="dc-cooling-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="dc-cooling-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-violet-100 bg-white">
+                  <div>
+                    <span class="font-black text-violet-800">■ 従来の空冷（チラー・ファン）</span>
+                    <p class="text-slate-600 ml-1">床下から冷風を送る方式。一般的なCPUサーバー（〜10kW/ラック）向けだが、高発熱AIサーバーには限界。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-violet-800">■ DLC (Direct-to-Chip / 直接液冷)</span>
+                    <p class="text-slate-600 ml-1">NVIDIA GPU（Blackwell/H100）等に冷媒管を直接密着させて冷却。次世代AIデータセンターの業界標準！</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-violet-800">■ 液浸冷却 (Immersion Cooling)</span>
+                    <p class="text-slate-600 ml-1">絶縁性オイルのプールにサーバー本体を丸ごとドボンと漬ける究極の冷却技術。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. リーシング営業・ハイパースケーラー営業 -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-violet-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-violet-800 bg-violet-100 px-2 py-0.5 rounded">数十億〜数百億契約</span>
+                <button onclick="copyKeywords('Data Center Leasing, Wholesale Leasing, Hyperscale Sales, Colocation Sales, Carrier Neutral, Interconnection')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-violet-800 border border-violet-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                リーシング営業部（ホールセール / コロケーション営業）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Hyperscale Account Management / ソリューション営業部）</p>
+              <div class="bg-violet-50 p-2 rounded-lg text-xs font-bold text-violet-950">
+                👉 クラウド大手や金融・通信会社に「ラック・電源・通信回線」を長期契約で貸し出す人
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Wholesale Leasing, Global Account Manager (Hyperscale)</div>
+                <div>👤 <b>役職：</b>VP of DC Leasing, Head of Hyperscale Sales</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-violet-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 'dc-leasing-diff')" class="w-full text-left px-2.5 py-1.5 bg-violet-100/60 hover:bg-violet-100 font-black text-violet-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】ホールセール vs キャリアニュートラル</span>
+                  <span id="dc-leasing-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="dc-leasing-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-violet-100 bg-white">
+                  <div>
+                    <span class="font-black text-violet-800">■ ホールセール契約（1棟貸し・メガワット単位）</span>
+                    <p class="text-slate-600 ml-1">AWSやMicrosoftと10年単位の長期固定契約を結び、超巨額の売上を一括確保するビジネス。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-violet-800">■ キャリアニュートラル（通信事業者フリー）</span>
+                    <p class="text-slate-600 ml-1">NTTやKDDIなど特定通信会社に縛られず、あらゆる回線と構内接続（Cross Connect）できる強み。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. サイトオペレーション・ファシリティ運用管理 -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-violet-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-violet-800 bg-violet-100 px-2 py-0.5 rounded">24/7無停止の番人</span>
+                <button onclick="copyKeywords('Data Center Operations, Site Operations, Critical Facility Management, NOC, White Space Management, Smarthands')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-violet-800 border border-violet-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                サイト運用部（データセンター運用管理 / NOC）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Site Operations / 施設管理課 / ネットワーク運用センター）</p>
+              <div class="bg-violet-50 p-2 rounded-lg text-xs font-bold text-violet-950">
+                👉 24時間365日体制で「停電・火災・水漏れ・温度異常」を防ぎ、物理セキュリティを守る現場
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Data Center Operations (DCO), Site Manager, NOC Lead</div>
+                <div>👤 <b>役職：</b>Data Center Site Director, Critical Operations Manager</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-violet-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 'dc-ops-diff')" class="w-full text-left px-2.5 py-1.5 bg-violet-100/60 hover:bg-violet-100 font-black text-violet-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】ホワイトスペース管理 vs スマートハンズ</span>
+                  <span id="dc-ops-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="dc-ops-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-violet-100 bg-white">
+                  <div>
+                    <span class="font-black text-violet-800">■ ホワイトスペース管理 (White Space)</span>
+                    <p class="text-slate-600 ml-1">サーバーが設置されている空調管理エリアの熱だまり（ホットアイル/コールドアイル）を監視。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-violet-800">■ スマートハンズ (Remote / Smart Hands)</span>
+                    <p class="text-slate-600 ml-1">海外や遠隔地にいる顧客に代わって、現地の技術員がサーバーの再起動、ケーブル抜き差し、ディスク交換を行うサービス。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Real Estate (Developer / AM / PM / BM) -->
+      <div id="ind-pane-realestate" class="industry-pane hidden space-y-4">
+        <div class="bg-amber-50/70 border-2 border-amber-200 rounded-2xl p-4 md:p-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-amber-200 pb-3 mb-4 gap-2">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🏗️</span>
               <div>
-                <h4 class="text-xs font-black text-amber-200">ICチップ / プロセッサ（CPU・GPU）</h4>
-                <p class="text-[11px] text-slate-300 mt-1 leading-snug">
-                  ウェハから四角く切り出し、黒い樹脂で保護して端子をつけた状態。指先サイズに数十億個のトランジスタが入っています。
+                <h3 class="text-lg md:text-xl font-black text-amber-950 font-rounded">
+                  不動産業界（総合デベロッパー / J-REIT / 不動産ファンド / AM・PM・BM）
+                </h3>
+                <p class="text-xs text-amber-800 font-bold">「用地仕入れ・開発」「投資・ファンド運用（AM）」「賃貸・リーシング（PM）」「施設保全（BM）」の役割完全分担</p>
+              </div>
+            </div>
+            <span class="text-xs font-black bg-amber-200 text-amber-900 px-3 py-1 rounded-full self-start md:self-auto">都市開発・不動産投資</span>
+          </div>
+
+          <!-- そもそもファンド・REITとは？ & 必須用語解説 -->
+          <div class="bg-gradient-to-r from-slate-900 via-stone-900 to-amber-950 text-white rounded-xl p-4 mb-4 border border-amber-800/60 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">💰</span>
+              <span class="text-sm font-black text-amber-300">そもそも「不動産ファンド」や「REIT（リート）」って何なの？</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div class="bg-white/10 p-3 rounded-lg border border-white/10">
+                <span class="text-amber-300 font-black block text-sm mb-1">🏦 不動産ファンド（Fund）とは？</span>
+                <p class="text-[11px] text-slate-200 leading-relaxed">
+                  数百億円する巨大なオフィスビルは、1人では買えません。<br>
+                  そこで、<b>「複数の投資家（年金・富裕層・生保等）からお金を大きなプールに集め、不動産のプロ（AM）が代わりにビルを買って運用し、家賃や売却益を出資者に分配する仕組み」</b>です。<br>
+                  👉 「みんなでお金を出し合って大きな買い物をして分け合う貯金箱＋運用チーム」のこと！
+                </p>
+              </div>
+              <div class="bg-white/10 p-3 rounded-lg border border-white/10">
+                <span class="text-sky-300 font-black block text-sm mb-1">📈 REIT（リート: 不動産投資信託）とは？</span>
+                <p class="text-[11px] text-slate-200 leading-relaxed">
+                  不動産ファンドを<b>「株式市場に上場させて、誰でも株と同じように数万〜数十万円単位でスマホから売買できるようにした商品」</b>です。<br>
+                  日本のREITは「J-REIT」と呼ばれ、利益の90%以上を配当（分配金）に回せば法人税がかからない優遇制度があるため、安定した配当利回りが魅力です。
                 </p>
               </div>
             </div>
 
-            <!-- 写真 3: 電子基板に載った半導体 -->
-            <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 flex flex-col justify-between space-y-2">
-              <div class="aspect-video w-full rounded-lg overflow-hidden bg-slate-800 relative shadow-inner">
-                <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80" 
-                     alt="電子基板・マザーボードに搭載された半導体" 
-                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Motherboard+PCB';">
-                <span class="absolute bottom-1.5 left-1.5 bg-black/70 text-[10px] font-black px-2 py-0.5 rounded text-white backdrop-blur">③ 搭載（電子基板）</span>
+            <!-- 不動産投資の必須用語ミニ辞典 -->
+            <div class="bg-black/40 rounded-xl p-3 border border-white/10 mt-2">
+              <span class="text-xs font-black text-amber-200 block mb-1.5">📖 【これだけ覚えれば会話できる】不動産投資の必須専門用語 5選</span>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 text-[11px]">
+                <div class="bg-white/5 p-2 rounded-lg">
+                  <span class="text-amber-300 font-black block">① インカム vs キャピタル</span>
+                  <p class="text-slate-300 mt-0.5">インカム＝毎月の家賃収入。<br>キャピタル＝ビルを高く売った時の売却益。</p>
+                </div>
+                <div class="bg-white/5 p-2 rounded-lg">
+                  <span class="text-cyan-300 font-black block">② NOI（純収益）</span>
+                  <p class="text-slate-300 mt-0.5">満室家賃から、清掃費・修繕費・固定資産税などを引いた「手元に残る正味の儲け」。</p>
+                </div>
+                <div class="bg-white/5 p-2 rounded-lg">
+                  <span class="text-emerald-300 font-black block">③ Cap Rate（キャップレート）</span>
+                  <p class="text-slate-300 mt-0.5">還元利回り（NOI÷物件価格）。東京オフィスで約3〜4%。低いほど物件価格が高値・安全。</p>
+                </div>
+                <div class="bg-white/5 p-2 rounded-lg">
+                  <span class="text-purple-300 font-black block">④ レバレッジ（借入）</span>
+                  <p class="text-slate-300 mt-0.5">銀行融資を使い、少ない自己資金で大きな物件を買って利回りを跳ね上げるテコの原理。</p>
+                </div>
+                <div class="bg-white/5 p-2 rounded-lg">
+                  <span class="text-rose-300 font-black block">⑤ エクイティ vs デット</span>
+                  <p class="text-slate-300 mt-0.5">エクイティ＝投資家の出資金（リスクマネー）。<br>デット＝銀行からの借入金（融資）。</p>
+                </div>
               </div>
-              <div>
-                <h4 class="text-xs font-black text-emerald-200">基板（スマホ・自動車・サーバーの中）</h4>
-                <p class="text-[11px] text-slate-300 mt-1 leading-snug">
-                  緑や黒の基板にはんだ付けされ、スマホの画面操作、車の自動ブレーキ、AIチャットの計算を裏で動かしています。
+            </div>
+
+            <!-- 3大ビークルの違い -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs pt-2">
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-black text-amber-300 text-xs">① J-REIT（上場不動産投信）</span>
+                  <span class="text-[9px] bg-amber-400 text-slate-900 font-black px-1.5 py-0.5 rounded">誰でも買える</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-snug">
+                  東証に上場し証券コードがある。個人でも1口単位で買え、換金性が極めて高い。
+                </p>
+              </div>
+
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-black text-sky-300 text-xs">② 私募REIT（非上場REIT）</span>
+                  <span class="text-[9px] bg-sky-400 text-slate-900 font-black px-1.5 py-0.5 rounded">プロ・年金専用</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-snug">
+                  上場せず機関投資家のみ。日々の株価の乱高下に左右されず安定した利回りを狙う。
+                </p>
+              </div>
+
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-black text-emerald-300 text-xs">③ 私募ファンド（GK-TK/TMK）</span>
+                  <span class="text-[9px] bg-emerald-400 text-slate-900 font-black px-1.5 py-0.5 rounded">外資PEファンド</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-snug">
+                  3〜7年程度の期限付きファンド。銀行借入を活用して古いビルを再生・高値転売してハイリターンを狙う。
                 </p>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- 3大機能のクイック解説 -->
-        <div class="bg-black/30 rounded-xl p-3 border border-white/10">
-          <div class="text-[11px] font-black text-indigo-300 mb-1.5">🎯 半導体のおもな3大役割（何に使われている？）</div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-[11px]">
-            <div class="bg-white/5 p-2 rounded-lg">
-              <span class="text-amber-300 font-black">① 計算する（ロジック半導体）</span>
-              <p class="text-slate-300 mt-0.5 leading-snug">CPU, GPU, AI専用チップ。人間でいう「大脳」。パソコンやスマホの頭脳。</p>
+          <!-- 時系列ディールフロー（仕入れから売却までのタイムライン） -->
+          <div class="bg-white border-2 border-amber-300 rounded-xl p-4 mb-4 shadow-xs space-y-3">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="flex items-center gap-1.5 text-amber-950 font-black text-xs">
+                <span>⏱️</span>
+                <span class="text-sm">【時系列でわかる】不動産プロジェクトのディールから売却（Exit）までの全流れ</span>
+              </div>
+              <span class="text-[10px] font-black bg-amber-100 text-amber-900 px-2 py-0.5 rounded">数ヶ月〜数年のタイムライン</span>
             </div>
-            <div class="bg-white/5 p-2 rounded-lg">
-              <span class="text-cyan-300 font-black">② 覚える（メモリ半導体）</span>
-              <p class="text-slate-300 mt-0.5 leading-snug">DRAM, NANDフラッシュ。人間でいう「記憶」。写真や動画、データを一時・恒久保存。</p>
-            </div>
-            <div class="bg-white/5 p-2 rounded-lg">
-              <span class="text-emerald-300 font-black">③ 電気を制御する（パワー半導体）</span>
-              <p class="text-slate-300 mt-0.5 leading-snug">EV（電気自動車）やエアコンで、高電圧を効率よくモーターに送る筋肉の役目。</p>
+            <p class="text-[11px] text-slate-600 font-bold leading-normal">
+              不動産の取引は、土地のソーシングから投資判断、テナント付け、そして最終売却まで以下のようにバトンを渡して進みます。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-2.5 text-xs">
+              <!-- Timeline Step 1 -->
+              <div class="relative bg-amber-50/90 p-3 rounded-xl border-2 border-amber-300 flex flex-col justify-between">
+                <span class="absolute -top-2.5 left-3 bg-amber-600 text-white font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                  PHASE 1（1〜3ヶ月）
+                </span>
+                <div class="pt-1">
+                  <h5 class="font-black text-amber-950 text-xs">ソーシング & 用地取得</h5>
+                  <div class="text-[10px] font-bold text-amber-800 mt-0.5">担当：用地取得部 / 開発部</div>
+                  <p class="text-[11px] text-slate-700 mt-1.5 leading-snug">
+                    地主や仲介から土地・売却物件の情報を入手。立地調査や容積率チェックを行い買収交渉。
+                  </p>
+                </div>
+                <div class="mt-2 text-[10px] font-black text-amber-700 text-right">➔ 投資審査へ</div>
+              </div>
+
+              <!-- Timeline Step 2 -->
+              <div class="relative bg-purple-50/90 p-3 rounded-xl border-2 border-purple-300 flex flex-col justify-between">
+                <span class="absolute -top-2.5 left-3 bg-purple-600 text-white font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                  PHASE 2（2〜4ヶ月）
+                </span>
+                <div class="pt-1">
+                  <h5 class="font-black text-purple-950 text-xs">DD（精査） & 資金調達</h5>
+                  <div class="text-[10px] font-bold text-purple-800 mt-0.5">担当：AM部 / 財務企画</div>
+                  <p class="text-[11px] text-slate-700 mt-1.5 leading-snug">
+                    建物の配管や土壌汚染の調査（DD）、利回り試算。銀行から融資（デット）を引き出し契約・決済！
+                  </p>
+                </div>
+                <div class="mt-2 text-[10px] font-black text-purple-700 text-right">➔ 運用へ</div>
+              </div>
+
+              <!-- Timeline Step 3 -->
+              <div class="relative bg-emerald-50/90 p-3 rounded-xl border-2 border-emerald-300 flex flex-col justify-between">
+                <span class="absolute -top-2.5 left-3 bg-emerald-600 text-white font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                  PHASE 3（1〜5年間）
+                </span>
+                <div class="pt-1">
+                  <h5 class="font-black text-emerald-950 text-xs">リーシング & 家賃最大化</h5>
+                  <div class="text-[10px] font-bold text-emerald-800 mt-0.5">担当：PM部（プロパティ管理）</div>
+                  <p class="text-[11px] text-slate-700 mt-1.5 leading-snug">
+                    空室を埋めるためオフィスやショップを営業誘致。賃料交渉、レントロール（家賃表）を管理。
+                  </p>
+                </div>
+                <div class="mt-2 text-[10px] font-black text-emerald-700 text-right">➔ 建物維持と連動</div>
+              </div>
+
+              <!-- Timeline Step 4 -->
+              <div class="relative bg-slate-100 p-3 rounded-xl border-2 border-slate-300 flex flex-col justify-between">
+                <span class="absolute -top-2.5 left-3 bg-slate-700 text-white font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                  PHASE 4（並行運用）
+                </span>
+                <div class="pt-1">
+                  <h5 class="font-black text-slate-900 text-xs">施設保全 & バリューアップ</h5>
+                  <div class="text-[10px] font-bold text-slate-700 mt-0.5">担当：BM部（ビル保全）</div>
+                  <p class="text-[11px] text-slate-700 mt-1.5 leading-snug">
+                    清掃・警備・空調点検。外壁補修やエントランス改装（CAPEX工事）で建物の資産価値を底上げ。
+                  </p>
+                </div>
+                <div class="mt-2 text-[10px] font-black text-slate-700 text-right">➔ 価値最大化</div>
+              </div>
+
+              <!-- Timeline Step 5 -->
+              <div class="relative bg-indigo-50/90 p-3 rounded-xl border-2 border-indigo-300 flex flex-col justify-between">
+                <span class="absolute -top-2.5 left-3 bg-indigo-600 text-white font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                  PHASE 5（3〜7年後）
+                </span>
+                <div class="pt-1">
+                  <h5 class="font-black text-indigo-950 text-xs">エグジット（売却・利益確定）</h5>
+                  <div class="text-[10px] font-bold text-indigo-800 mt-0.5">担当：AM部 / 経営陣</div>
+                  <p class="text-[11px] text-slate-700 mt-1.5 leading-snug">
+                    満室になり賃料利回りが向上した段階で、J-REITや他社ファンドに高値で売却（ディスポジション）し投資家に分配！
+                  </p>
+                </div>
+                <div class="mt-2 text-[10px] font-black text-indigo-700 text-right">✅ 投資完了</div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="space-y-3 max-w-4xl mx-auto">
-        <!-- 準備01: シリコンウェハ製造 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <ellipse cx="50" cy="30" rx="42" ry="18" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
-              <ellipse cx="50" cy="27" rx="38" ry="15" fill="#e2e8f0"/>
-              <text x="50" y="32" font-size="8" text-anchor="middle" font-weight="bold" fill="#475569">Silicon Wafer</text>
-            </svg>
+          <!-- Crucial AM vs PM vs BM Distinction Guide for Third Bridge -->
+          <div class="bg-white border-2 border-amber-300 rounded-xl p-3.5 mb-4 shadow-xs">
+            <div class="flex items-center gap-1.5 text-amber-950 font-black text-xs mb-2">
+              <span>💡</span>
+              <span class="text-sm">【Third Bridge最重要】不動産案件で絶対に混同してはならない「AM」「PM」「BM」の違い！</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+              <div class="bg-purple-50/80 p-2.5 rounded-lg border border-purple-200">
+                <span class="font-black text-purple-900 text-xs block">① AM（アセットマネジメント：投資運用）</span>
+                <p class="text-[11px] text-slate-700 mt-1 leading-relaxed">
+                  <b>「お金を動かす頭脳」</b><br>
+                  物件の売買、リターン（NOI / Cap Rate）計算、REITや私募ファンドの利回り最大化、融資交渉を担当。
+                </p>
+              </div>
+              <div class="bg-emerald-50/80 p-2.5 rounded-lg border border-emerald-200">
+                <span class="font-black text-emerald-900 text-xs block">② PM（プロパティマネジメント：賃貸管理）</span>
+                <p class="text-[11px] text-slate-700 mt-1 leading-relaxed">
+                  <b>「テナントを入れて家賃を稼ぐ営業」</b><br>
+                  空室を埋めるリーシング営業、賃料改定交渉、テナントとの契約更新、レントロール管理を担当。
+                </p>
+              </div>
+              <div class="bg-slate-100 p-2.5 rounded-lg border border-slate-300">
+                <span class="font-black text-slate-900 text-xs block">③ BM（ビルマネジメント：建物保全）</span>
+                <p class="text-[11px] text-slate-700 mt-1 leading-relaxed">
+                  <b>「物理的な建物のメンテナンス」</b><br>
+                  清掃、警備、エレベーター点検、修繕工事（CAPEX）の監督、電気設備点検などを担当。
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="flex-1 space-y-1 text-xs">
+
+          <!-- 4 Core Real Estate Departments Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+            
+            <!-- 1. 用地取得・開発計画部（デベロッパー） -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-amber-800 bg-amber-100 px-2 py-0.5 rounded">デベロッパーの源泉</span>
+                <button onclick="copyKeywords('Real Estate Development, Land Acquisition, Site Sourcing, Urban Redevelopment, 用地仕入れ, 開発企画部, 再開発')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-amber-800 border border-amber-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                用地取得部 / 都市開発部（デベロッパー）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Acquisition & Sourcing / 開発計画部 / 再開発推進課）</p>
+              <div class="bg-amber-50 p-2 rounded-lg text-xs font-bold text-amber-950">
+                👉 土地の仕入れ交渉、地権者の取りまとめ、都市計画や容積率規制をクリアしてビルを建てる人
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Real Estate Acquisition, Urban Planning, Land Development</div>
+                <div>👤 <b>役職：</b>Head of Acquisition, Director of Real Estate Development</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-amber-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 're-dev-diff')" class="w-full text-left px-2.5 py-1.5 bg-amber-100/60 hover:bg-amber-100 font-black text-amber-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】用地仕入れ vs 都市再開発の違い</span>
+                  <span id="re-dev-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="re-dev-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-amber-100 bg-white">
+                  <div>
+                    <span class="font-black text-amber-800">■ 単独用地仕入れ (Greenfield / Brownfield)</span>
+                    <p class="text-slate-600 ml-1">工場跡地や更地を法人・個人から買い取り、物流施設やマンション、オフィスを新築する。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-amber-800">■ 都市再開発 (Urban Redevelopment)</span>
+                    <p class="text-slate-600 ml-1">数百人の地権者と10年かけて等価交換や組合設立を進め、街区全体を大規模複合ビルに再生する。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. 不動産投資・アセットマネジメント部（AM / REIT） -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-purple-800 bg-purple-100 px-2 py-0.5 rounded">ファンド・投資頭脳</span>
+                <button onclick="copyKeywords('Asset Management, Real Estate Private Equity, J-REIT, Portfolio Manager, Cap Rate, NOI, 不動産ファンド, アセットマネジメント')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-purple-800 border border-purple-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                アセットマネジメント部（不動産投資運用 / J-REIT）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Asset Management: AM / 投資運用部 / ファンドマネジメント）</p>
+              <div class="bg-purple-50 p-2 rounded-lg text-xs font-bold text-purple-950">
+                👉 投資家（年金等）のお金で物件を売買し、配当利回り（キャップレート）を最大化する人
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Real Estate AM, Fund Manager, Portfolio Manager, Acquisition Lead</div>
+                <div>👤 <b>役職：</b>Head of Asset Management, Fund Manager, Investment Director</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-purple-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 're-am-diff')" class="w-full text-left px-2.5 py-1.5 bg-purple-100/60 hover:bg-purple-100 font-black text-purple-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】コア型（REIT） vs オポチュニティ型（PE）</span>
+                  <span id="re-am-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="re-am-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-purple-100 bg-white">
+                  <div>
+                    <span class="font-black text-purple-800">■ コア型運用（J-REIT等）</span>
+                    <p class="text-slate-600 ml-1">優良なオフィスや物流施設を長期保有し、安定した賃料配当（インカムゲイン）を狙う手堅い運用。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-purple-800">■ オポチュニティ型（不動産PEファンド）</span>
+                    <p class="text-slate-600 ml-1">空室だらけのボロビルを安く買い、リノベーションして満室にしてから高値で転売（キャピタルゲイン）するハイリターン運用。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. プロパティマネジメント部・リーシング営業（PM） -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">テナント誘致・家賃回収</span>
+                <button onclick="copyKeywords('Property Management, PM, Leasing Manager, Tenant Relations, Rent Roll, プロパティマネジメント, リーシング営業')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-emerald-800 border border-emerald-200 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                プロパティマネジメント部（PM部 / リーシング営業部）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Property Management: PM / 賃貸営業課 / テナントリレーション）</p>
+              <div class="bg-emerald-50 p-2 rounded-lg text-xs font-bold text-emerald-950">
+                👉 企業のオフィスや店舗を誘致（リーシング）し、賃料アップや空室対策を行う稼ぎ頭
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Property Management, Commercial Leasing, Tenant Relations</div>
+                <div>👤 <b>役職：</b>Property Manager, Head of Commercial Leasing</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-emerald-200 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 're-pm-diff')" class="w-full text-left px-2.5 py-1.5 bg-emerald-100/60 hover:bg-emerald-100 font-black text-emerald-950 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】オフィス仲介業者 vs PMリーシングの違い</span>
+                  <span id="re-pm-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="re-pm-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-emerald-100 bg-white">
+                  <div>
+                    <span class="font-black text-emerald-800">■ PMリーシング（オーナー側代理人）</span>
+                    <p class="text-slate-600 ml-1">ビルの所有者に代わって「どんなテナントを入れるか」「フリーレント何ヶ月出すか」を判断する権限者。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-emerald-800">■ テナント仲介（三鬼商事、CBRE、JLL等）</span>
+                    <p class="text-slate-600 ml-1">移転したい企業とビルオーナーの間を取り持つブローカー（手数料ビジネス）。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. ファシリティマネジメント・ビルマネジメント（BM / FM） -->
+            <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-xs space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black text-slate-700 bg-slate-200 px-2 py-0.5 rounded">建物の物理保守</span>
+                <button onclick="copyKeywords('Building Management, BM, Facility Management, FM, CAPEX, Preventive Maintenance, 大規模修繕, ビル管理')" class="text-[10px] font-black bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-300 px-1.5 py-0.5 rounded">📋 コピー</button>
+              </div>
+              <h4 class="text-lg font-black font-rounded text-slate-900">
+                ビルマネジメント部（BM部） / ファシリティ統括部（FM）
+              </h4>
+              <p class="text-xs text-slate-500 font-bold">（Building Management: BM / 設備保全部 / 環境省エネ推進課）</p>
+              <div class="bg-slate-100 p-2 rounded-lg text-xs font-bold text-slate-800">
+                👉 建物の清掃・警備・設備点検、省エネ（脱炭素化）、大規模修繕工事（CAPEX）を取り仕切る現場
+              </div>
+              <div class="pt-2 border-t border-slate-100 text-[11px] space-y-1">
+                <div>🌐 <b>英語：</b>Building Operations, Facility Management (FM), CAPEX Planning</div>
+                <div>👤 <b>役職：</b>Facility Manager, Chief Building Engineer</div>
+              </div>
+              <!-- Nested Dropdown -->
+              <div class="border border-slate-300 rounded-lg overflow-hidden bg-white mt-2">
+                <button type="button" onclick="toggleSubNested(event, 're-bm-diff')" class="w-full text-left px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 font-black text-slate-900 flex items-center justify-between text-[11px]">
+                  <span>📂 【深掘り】日常管理（OPEX） vs 大規模修繕（CAPEX）</span>
+                  <span id="re-bm-diff-arrow" class="text-xs">▼ 開く</span>
+                </button>
+                <div id="re-bm-diff" class="hidden p-2 space-y-1.5 text-[11px] border-t border-slate-200 bg-white">
+                  <div>
+                    <span class="font-black text-slate-800">■ 日常維持管理 (OPEX)</span>
+                    <p class="text-slate-600 ml-1">電気代、警備費、清掃費、消耗品交換など日常的にかかる経費を削減・管理する。</p>
+                  </div>
+                  <div>
+                    <span class="font-black text-slate-800">■ 資本的支出 (CAPEX: 10〜15年周期の大規模修繕)</span>
+                    <p class="text-slate-600 ml-1">外壁補修、エレベーター更新、空調の高効率機器への刷新などビルの資産価値を高める大型投資計画。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Semiconductor (Fabless, Foundry, IDM, OSAT) in Industry Map -->
+      <div id="ind-pane-semicon" class="industry-pane hidden space-y-5">
+        <div class="bg-amber-50/70 border-2 border-amber-300 rounded-2xl p-4 md:p-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-amber-200 pb-3 mb-4 gap-2">
             <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-slate-800 text-white font-black text-[11px] rounded">準備工程 01</span>
-              <h3 class="font-black text-slate-900 text-sm">シリコンウェハ製造工程</h3>
+              <span class="text-2xl">⚡</span>
+              <div>
+                <h3 class="text-lg md:text-xl font-black text-amber-950 font-rounded">
+                  半導体業界（ファブレス / ファウンドリ / 特有部門 ＆ 全製造フロー）
+                </h3>
+                <p class="text-xs text-amber-800 font-bold">業界構造、特有部門、そしてウェハから完成チップまでの物理製造フローをワンストップ網羅</p>
+              </div>
             </div>
-            <div class="bg-slate-100 text-slate-800 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：超高純度のケイ素を溶かしてインゴットを作り、薄い円盤状にスライスして鏡面に磨き上げる土台作り！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>検査・装置：</b> ウェハ平坦度検査（日立ハイテク）、表面欠陥検査（KLA）<br>
-              <b>代表企業：</b> 信越化学工業、SUMCO、Siltronic
-            </div>
+            <span class="text-xs font-black bg-amber-200 text-amber-900 px-3 py-1 rounded-full self-start md:self-auto">完全網羅ガイド</span>
           </div>
-        </div>
 
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 準備02: フォトマスク作成 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-indigo-50 border border-indigo-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-20 h-14">
-              <rect x="15" y="10" width="70" height="40" rx="3" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
-              <rect x="22" y="16" width="16" height="12" fill="#312e81"/>
-              <rect x="42" y="16" width="16" height="12" fill="#312e81"/>
-              <rect x="62" y="16" width="16" height="12" fill="#312e81"/>
-              <rect x="22" y="32" width="16" height="12" fill="#312e81"/>
-              <rect x="42" y="32" width="16" height="12" fill="#312e81"/>
-              <rect x="62" y="32" width="16" height="12" fill="#312e81"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
+          <!-- ================= そもそも半導体とは？（入門解説 & 実物ビジュアル） ================= -->
+          <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-xl p-4 md:p-5 shadow-sm border border-indigo-900/60 space-y-3.5 mb-4">
             <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-indigo-700 text-white font-black text-[11px] rounded">準備工程 02</span>
-              <h3 class="font-black text-slate-900 text-sm">フォトマスク作成工程（回路の原版）</h3>
+              <span class="text-xl">💡</span>
+              <div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-amber-300 bg-amber-400/20 px-2 py-0.5 rounded-full border border-amber-400/30">基礎知識</span>
+                <h4 class="text-base md:text-lg font-black font-rounded text-white mt-0.5">
+                  そもそも「半導体（Semiconductor）」ってなに？
+                </h4>
+              </div>
             </div>
-            <div class="bg-indigo-50 text-indigo-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：設計図（EDA）から、回路パターンを正確に光で焼き付けるための「超精密なネガフィルム原版」を作る！
+
+            <!-- 30秒でわかる要約 -->
+            <p class="text-xs text-slate-200 font-bold leading-relaxed bg-white/5 p-3 rounded-lg border border-white/10">
+              半導体とは、電気をよく通す<b>「導体（鉄や銅）」</b>と、電気を通さない<b>「絶縁体（ゴムやガラス）」</b>の<b>ちょうど中間の性質</b>を持つ物質（主にシリコン/ケイ素）のこと。<br>
+              電気を通したり止めたり（ON/OFF）を1秒間に何十億回も切り替えることで、<b>「0と1のデジタル計算・記憶・制御」を行う、あらゆる電化製品の『頭脳』</b>です。
+            </p>
+
+            <!-- 写真ビジュアル & 形状の進化 -->
+            <div>
+              <div class="text-xs font-black text-amber-300 mb-2 flex items-center gap-1">
+                <span>📸</span> 実物はどんな姿？（材料の「円盤」から、機械の中の「黒いチップ」へ）
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                <!-- 写真 1: シリコンウェハ -->
+                <div class="bg-white/10 backdrop-blur rounded-lg p-2.5 border border-white/10 flex flex-col justify-between space-y-1.5">
+                  <div class="aspect-video w-full rounded overflow-hidden bg-slate-800 relative shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                         alt="シリコンウェハと集積回路" 
+                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Silicon+Wafer';">
+                    <span class="absolute bottom-1 left-1 bg-black/70 text-[9px] font-black px-1.5 py-0.5 rounded text-white backdrop-blur">① 材料（ウェハ）</span>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-black text-blue-200">シリコンウェハ（直径約30cm）</h5>
+                    <p class="text-[10px] text-slate-300 mt-0.5 leading-snug">
+                      高純度シリコンを鏡のように磨いた丸い薄板。この表面にナノ単位で回路を何百層も焼き付けます。
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 写真 2: パッケージ化されたチップ -->
+                <div class="bg-white/10 backdrop-blur rounded-lg p-2.5 border border-white/10 flex flex-col justify-between space-y-1.5">
+                  <div class="aspect-video w-full rounded overflow-hidden bg-slate-800 relative shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" 
+                         alt="マイクロチップ・CPU" 
+                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Semiconductor+Chip';">
+                    <span class="absolute bottom-1 left-1 bg-black/70 text-[9px] font-black px-1.5 py-0.5 rounded text-white backdrop-blur">② 完成品（ICチップ）</span>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-black text-amber-200">ICチップ / プロセッサ（CPU・GPU）</h5>
+                    <p class="text-[10px] text-slate-300 mt-0.5 leading-snug">
+                      ウェハから四角く切り出し、黒い樹脂で保護して端子をつけた状態。指先サイズに数十億個のトランジスタが入っています。
+                    </p>
+                  </div>
+                </div>
+
+                <!-- 写真 3: 電子基板に載った半導体 -->
+                <div class="bg-white/10 backdrop-blur rounded-lg p-2.5 border border-white/10 flex flex-col justify-between space-y-1.5">
+                  <div class="aspect-video w-full rounded overflow-hidden bg-slate-800 relative shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80" 
+                         alt="電子基板・マザーボードに搭載された半導体" 
+                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Motherboard+PCB';">
+                    <span class="absolute bottom-1 left-1 bg-black/70 text-[9px] font-black px-1.5 py-0.5 rounded text-white backdrop-blur">③ 搭載（電子基板）</span>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-black text-emerald-200">基板（スマホ・自動車・サーバーの中）</h5>
+                    <p class="text-[10px] text-slate-300 mt-0.5 leading-snug">
+                      緑や黒の基板にはんだ付けされ、スマホの画面操作、車の自動ブレーキ、AIチャットの計算を裏で動かしています。
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="text-[11px] text-slate-700">
-              <b>検査・装置：</b> フォトマスク欠陥検査装置（レーザーテック）、電子ビーム描画装置（日本電子）<br>
-              <b>代表企業：</b> TOPPAN、大日本印刷（DNP）、HOYA
+
+            <!-- 3大機能のクイック解説 -->
+            <div class="bg-black/30 rounded-lg p-2.5 border border-white/10">
+              <div class="text-[11px] font-black text-indigo-300 mb-1">🎯 半導体のおもな3大役割（何に使われている？）</div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-[10px]">
+                <div class="bg-white/5 p-1.5 rounded">
+                  <span class="text-amber-300 font-black">① 計算する（ロジック半導体）</span>
+                  <p class="text-slate-300 mt-0.5 leading-snug">CPU, GPU, AI専用チップ。人間でいう「大脳」。パソコンやスマホの頭脳。</p>
+                </div>
+                <div class="bg-white/5 p-1.5 rounded">
+                  <span class="text-cyan-300 font-black">② 覚える（メモリ半導体）</span>
+                  <p class="text-slate-300 mt-0.5 leading-snug">DRAM, NANDフラッシュ。人間でいう「記憶」。写真や動画、データを保存。</p>
+                </div>
+                <div class="bg-white/5 p-1.5 rounded">
+                  <span class="text-emerald-300 font-black">③ 電気を制御する（パワー半導体）</span>
+                  <p class="text-slate-300 mt-0.5 leading-snug">EV（電気自動車）やエアコンで、高電圧を効率よくモーターに送る筋肉の役目。</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 前工程01: 洗浄工程 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-sky-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-sky-50 border border-sky-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <rect x="15" y="25" width="70" height="20" rx="2" fill="#94a3b8"/>
-              <circle cx="35" cy="18" r="4" fill="#38bdf8"/>
-              <circle cx="50" cy="14" r="5" fill="#0284c7"/>
-              <circle cx="65" cy="19" r="4" fill="#38bdf8"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
+          <!-- TSMC / ファブレス / ファウンドリ徹底解説パネル -->
+          <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-xl p-4 mb-4 border border-indigo-800/60 space-y-3">
             <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-sky-600 text-white font-black text-[11px] rounded">前工程 01</span>
-              <h3 class="font-black text-slate-900 text-sm">洗浄工程（Cleaning）</h3>
+              <span class="text-xl">🌐</span>
+              <span class="text-sm font-black text-amber-300">【超重要】TSMCとは？「ファブレス」と「ファウンドリ」の水平分業構造</span>
             </div>
-            <div class="bg-sky-50 text-sky-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：微小なゴミや金属不純物を薬液や超純水で洗い流し、原子レベルでクリーンな状態にする！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>装置：</b> バッチ式・枚葉式洗浄装置（SCREENホールディングス、東京エレクトロン）
+            <p class="text-xs text-slate-200 font-bold leading-relaxed">
+              昔の半導体会社は「設計から製造まで全部自社」で行っていましたが、工場の建設費が1兆〜3兆円規模へと超巨大化したため、現在は<b>「設計だけやる会社（ファブレス）」</b>と<b>「製造だけ請け負う会社（ファウンドリ：TSMC）」</b>に世界規模で完全に役割が分かれています。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs pt-1">
+              <!-- 1. ファブレス -->
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-black text-cyan-300 text-xs">① ファブレス（Fabless）</span>
+                    <span class="text-[9px] bg-cyan-500/80 text-white font-bold px-1.5 py-0.5 rounded">工場なし</span>
+                  </div>
+                  <div class="text-[10px] text-cyan-200 font-bold">「設計・開発に全集中する頭脳集団」</div>
+                  <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                    自社工場を持たず（Fab-less）、コンピュータ上で回路を設計し、製造はTSMCへ全量委託！
+                  </p>
+                </div>
+                <div class="mt-2 pt-1.5 border-t border-white/10 text-[10px]">
+                  <span class="font-black text-amber-300">🏢 代表例：</span><br>
+                  <span class="text-slate-200 font-bold">NVIDIA, Apple, Qualcomm, AMD</span>
+                </div>
+              </div>
+
+              <!-- 2. ファウンドリ -->
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-black text-amber-300 text-xs">② ファウンドリ（Foundry）</span>
+                    <span class="text-[9px] bg-amber-500/80 text-slate-900 font-black px-1.5 py-0.5 rounded">受託製造の巨人</span>
+                  </div>
+                  <div class="text-[10px] text-amber-200 font-bold">「他社の設計通りに完璧に作る工場」</div>
+                  <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                    自社ブランドのチップは持たず、世界中のファブレスから受託して最先端ナノプロセスで製造。
+                  </p>
+                </div>
+                <div class="mt-2 pt-1.5 border-t border-white/10 text-[10px]">
+                  <span class="font-black text-amber-300">🏢 代表例：</span><br>
+                  <span class="text-slate-200 font-bold">TSMC (台湾・世界シェア過半), UMC, GF</span>
+                </div>
+              </div>
+
+              <!-- 3. IDM -->
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-black text-purple-300 text-xs">③ IDM（統合型デバイス製造）</span>
+                    <span class="text-[9px] bg-purple-500/80 text-white font-bold px-1.5 py-0.5 rounded">垂直統合</span>
+                  </div>
+                  <div class="text-[10px] text-purple-200 font-bold">「設計から工場まで全部自社で持つ」</div>
+                  <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                    自社でチップを企画し、自社のメガファブで製造・販売する伝統的な総合半導体メーカー。
+                  </p>
+                </div>
+                <div class="mt-2 pt-1.5 border-t border-white/10 text-[10px]">
+                  <span class="font-black text-amber-300">🏢 代表例：</span><br>
+                  <span class="text-slate-200 font-bold">Intel, Samsung, キオクシア, マイクロン</span>
+                </div>
+              </div>
+
+              <!-- 4. OSAT -->
+              <div class="bg-white/10 p-2.5 rounded-lg border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-black text-emerald-300 text-xs">④ OSAT（後工程・テスト受託）</span>
+                    <span class="text-[9px] bg-emerald-500/80 text-white font-bold px-1.5 py-0.5 rounded">切断・検査</span>
+                  </div>
+                  <div class="text-[10px] text-emerald-200 font-bold">「チップを切り分けて樹脂で固める」</div>
+                  <p class="text-[11px] text-slate-300 mt-1 leading-snug">
+                    TSMCから届いたウェハを切断（ダイシング）し、基板に配線して樹脂封止・最終検査を行う工場。
+                  </p>
+                </div>
+                <div class="mt-2 pt-1.5 border-t border-white/10 text-[10px]">
+                  <span class="font-black text-amber-300">🏢 代表例：</span><br>
+                  <span class="text-slate-200 font-bold">ASE (台湾), Amkor (米国)</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- ================= ここに半導体全製造工程（フロー・装置・企業）を完全統合 ================= -->
+          <div class="pt-6 border-t-2 border-amber-300 space-y-4">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">🔬</span>
+                <div>
+                  <h4 class="text-base md:text-lg font-black font-rounded text-amber-950">
+                    半導体製造・装置・検査フロー（上流から下流までの縦型マップ）
+                  </h4>
+                  <p class="text-xs font-bold text-slate-600">
+                    全工程のイラスト図解、装置・検査内容、代表企業名、および初心者向けのわかりやすいポイント解説
+                  </p>
+                </div>
+              </div>
+              <span class="text-[10px] font-black bg-amber-200 text-amber-900 px-2.5 py-1 rounded-lg">
+                準備 ➔ 前工程 ➔ 後工程
+              </span>
+            </div>
+
+            <div class="space-y-3 max-w-4xl mx-auto pt-2">
+              <!-- 準備01: シリコンウェハ製造 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-slate-300 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <ellipse cx="50" cy="30" rx="42" ry="18" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+                    <ellipse cx="50" cy="27" rx="38" ry="15" fill="#e2e8f0"/>
+                    <text x="50" y="32" font-size="8" text-anchor="middle" font-weight="bold" fill="#475569">Silicon Wafer</text>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-slate-800 text-white font-black text-[11px] rounded">準備工程 01</span>
+                    <h3 class="font-black text-slate-900 text-sm">シリコンウェハ製造工程</h3>
+                  </div>
+                  <div class="bg-slate-100 text-slate-800 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：超高純度のケイ素を溶かしてインゴットを作り、薄い円盤状にスライスして鏡面に磨き上げる土台作り！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>検査・装置：</b> ウェハ平坦度検査（日立ハイテク）、表面欠陥検査（KLA）<br>
+                    <b>代表企業：</b> 信越化学工業、SUMCO、Siltronic
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 準備02: フォトマスク作成 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-indigo-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-indigo-50 border border-indigo-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-20 h-14">
+                    <rect x="15" y="10" width="70" height="40" rx="3" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
+                    <rect x="22" y="16" width="16" height="12" fill="#312e81"/>
+                    <rect x="42" y="16" width="16" height="12" fill="#312e81"/>
+                    <rect x="62" y="16" width="16" height="12" fill="#312e81"/>
+                    <rect x="22" y="32" width="16" height="12" fill="#312e81"/>
+                    <rect x="42" y="32" width="16" height="12" fill="#312e81"/>
+                    <rect x="62" y="32" width="16" height="12" fill="#312e81"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-indigo-700 text-white font-black text-[11px] rounded">準備工程 02</span>
+                    <h3 class="font-black text-slate-900 text-sm">フォトマスク作成工程（回路の原版）</h3>
+                  </div>
+                  <div class="bg-indigo-50 text-indigo-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：設計図（EDA）から、回路パターンを正確に光で焼き付けるための「超精密なネガフィルム原版」を作る！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>検査・装置：</b> フォトマスク欠陥検査装置（レーザーテック）、電子ビーム描画装置（日本電子）<br>
+                    <b>代表企業：</b> TOPPAN、大日本印刷（DNP）、HOYA
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 前工程01: 洗浄工程 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-sky-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-sky-50 border border-sky-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <rect x="15" y="25" width="70" height="20" rx="2" fill="#94a3b8"/>
+                    <circle cx="35" cy="18" r="4" fill="#38bdf8"/>
+                    <circle cx="50" cy="14" r="5" fill="#0284c7"/>
+                    <circle cx="65" cy="19" r="4" fill="#38bdf8"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-sky-600 text-white font-black text-[11px] rounded">前工程 01</span>
+                    <h3 class="font-black text-slate-900 text-sm">洗浄工程（Cleaning）</h3>
+                  </div>
+                  <div class="bg-sky-50 text-sky-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：微小なゴミや金属不純物を薬液や超純水で洗い流し、原子レベルでクリーンな状態にする！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>装置：</b> バッチ式・枚葉式洗浄装置（SCREENホールディングス、東京エレクトロン）
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 前工程02: 熱酸化・成膜工程 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-blue-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <rect x="15" y="32" width="70" height="16" fill="#94a3b8"/>
+                    <rect x="15" y="24" width="70" height="8" fill="#60a5fa"/>
+                    <text x="50" y="44" font-size="7" text-anchor="middle" fill="#ffffff" font-weight="bold">Si 基板</text>
+                    <text x="50" y="30" font-size="6" text-anchor="middle" fill="#ffffff" font-weight="bold">薄膜 (SiO2/Poly-Si)</text>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-blue-600 text-white font-black text-[11px] rounded">前工程 02・03</span>
+                    <h3 class="font-black text-slate-900 text-sm">熱酸化 & 薄膜形成工程（CVD / PVD / ALD）</h3>
+                  </div>
+                  <div class="bg-blue-50 text-blue-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：ウェハの表面に電気を通す膜（金属）や、電気を遮る絶縁膜（酸化膜）をナノ単位で塗布・成膜する！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>装置：</b> 成膜装置・熱処理炉（Applied Materials、東京エレクトロン、日立国際電気）
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 前工程04: リソグラフィ（露光・塗布現像） -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-purple-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-purple-50 border border-purple-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <line x1="25" y1="5" x2="25" y2="15" stroke="#a855f7" stroke-width="2"/>
+                    <line x1="50" y1="5" x2="50" y2="15" stroke="#a855f7" stroke-width="2"/>
+                    <line x1="75" y1="5" x2="75" y2="15" stroke="#a855f7" stroke-width="2"/>
+                    <rect x="20" y="16" width="60" height="4" fill="#312e81"/>
+                    <rect x="15" y="24" width="70" height="6" fill="#f43f5e"/>
+                    <rect x="15" y="30" width="70" height="6" fill="#60a5fa"/>
+                    <rect x="15" y="36" width="70" height="14" fill="#94a3b8"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-purple-600 text-white font-black text-[11px] rounded">前工程 04</span>
+                    <h3 class="font-black text-slate-900 text-sm">フォトリソグラフィ工程（塗布 ➔ 露光 ➔ 現像）</h3>
+                  </div>
+                  <div class="bg-purple-50 text-purple-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：感光剤（レジスト）を塗り、フォトマスクを通して光（EUV/DUV）を当て、回路の影を焼き付ける最重要工程！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>露光装置：</b> ASML（EUV独占）、ニコン、キヤノン<br>
+                    <b>コータ・デベロッパ（塗布現像）：</b> 東京エレクトロン（世界シェア9割）
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 前工程05〜07: エッチング・イオン注入・平坦化 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <rect x="15" y="36" width="70" height="14" fill="#94a3b8"/>
+                    <rect x="25" y="26" width="16" height="10" fill="#f59e0b"/>
+                    <rect x="55" y="26" width="16" height="10" fill="#f59e0b"/>
+                    <line x1="15" y1="20" x2="85" y2="20" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-amber-600 text-white font-black text-[11px] rounded">前工程 05〜07</span>
+                    <h3 class="font-black text-slate-900 text-sm">エッチング ➔ イオン注入 ➔ 平坦化（CMP研磨）</h3>
+                  </div>
+                  <div class="bg-amber-50 text-amber-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：不要な膜をプラズマガスで削り（エッチング）、電気の通りやすさを変える不純物を打ち込み、凹凸をナノ研磨（CMP）する！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>エッチング装置：</b> Lam Research、東京エレクトロン、Applied Materials<br>
+                    <b>CMP研磨装置：</b> 荏原製作所、Applied Materials
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 前工程08: ウェハ検査 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <ellipse cx="50" cy="30" rx="35" ry="14" fill="#cbd5e1" stroke="#475569"/>
+                    <line x1="50" y1="10" x2="50" y2="28" stroke="#10b981" stroke-width="2"/>
+                    <circle cx="50" cy="28" r="3" fill="#ef4444"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-emerald-600 text-white font-black text-[11px] rounded">前工程 08</span>
+                    <h3 class="font-black text-slate-900 text-sm">ウェハテスト・外観検査（Wafer Inspection）</h3>
+                  </div>
+                  <div class="bg-emerald-50 text-emerald-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：切り分ける前のウェハにプローブ（微細な針）を刺して電気を通し、どのチップが不良品かを判定！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>プローバー装置：</b> 東京精密、東京エレクトロン<br>
+                    <b>ICテスター：</b> アドバンテスト、Teradyne
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 後工程01: ダイシング -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-rose-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-rose-50 border border-rose-200 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <ellipse cx="50" cy="30" rx="35" ry="14" fill="#fecdd3" stroke="#f43f5e"/>
+                    <line x1="25" y1="20" x2="75" y2="40" stroke="#be123c" stroke-width="1.5"/>
+                    <line x1="75" y1="20" x2="25" y2="40" stroke="#be123c" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-rose-600 text-white font-black text-[11px] rounded">後工程 01</span>
+                    <h3 class="font-black text-slate-900 text-sm">ダイシング工程（ウェハ切断）</h3>
+                  </div>
+                  <div class="bg-rose-50 text-rose-950 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：完成したウェハを、超極薄ブレードやレーザーで1粒ずつの四角いチップ（ダイ）に切り分ける！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>ダイシングソー・研削装置：</b> DISCO（ディスコ：世界シェア首位）、東京精密
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center text-slate-400 font-black text-sm">↓</div>
+
+              <!-- 後工程02〜04: パッケージング & 最終検査 -->
+              <div class="bg-white rounded-2xl p-4 border-2 border-stone-300 shadow-sm flex flex-col md:flex-row items-center gap-4">
+                <div class="w-full md:w-36 h-20 bg-stone-100 border border-stone-300 rounded-xl flex items-center justify-center p-2 shrink-0">
+                  <svg viewBox="0 0 100 60" class="w-24 h-14">
+                    <rect x="25" y="24" width="50" height="14" rx="2" fill="#1e293b"/>
+                    <rect x="35" y="16" width="30" height="8" fill="#94a3b8"/>
+                    <path d="M 38 16 Q 30 10 27 24" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+                    <path d="M 62 16 Q 70 10 73 24" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+                    <line x1="20" y1="31" x2="25" y2="31" stroke="#64748b" stroke-width="2"/>
+                    <line x1="75" y1="31" x2="80" y2="31" stroke="#64748b" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="flex-1 space-y-1 text-xs">
+                  <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-stone-800 text-white font-black text-[11px] rounded">後工程 02〜04</span>
+                    <h3 class="font-black text-slate-900 text-sm">ボンディング ➔ モールディング ➔ 最終検査</h3>
+                  </div>
+                  <div class="bg-stone-100 text-stone-900 font-bold p-1.5 rounded text-[11px]">
+                    💡 概要・ポイント：髪の毛より細い金線で基板と繋ぎ、黒い樹脂で固めて保護し、最後に過酷な温度・電圧をかけて出荷前テスト！
+                  </div>
+                  <div class="text-[11px] text-slate-700">
+                    <b>後工程受託（OSAT）：</b> ASE、Amkor<br>
+                    <b>ハンドラ・最終テスター：</b> セイコーエプソン、アドバンテスト、山一電機
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 前工程02: 熱酸化・成膜工程 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-blue-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <rect x="15" y="32" width="70" height="16" fill="#94a3b8"/>
-              <rect x="15" y="24" width="70" height="8" fill="#60a5fa"/>
-              <text x="50" y="44" font-size="7" text-anchor="middle" fill="#ffffff" font-weight="bold">Si 基板</text>
-              <text x="50" y="30" font-size="6" text-anchor="middle" fill="#ffffff" font-weight="bold">薄膜 (SiO2/Poly-Si)</text>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-blue-600 text-white font-black text-[11px] rounded">前工程 02・03</span>
-              <h3 class="font-black text-slate-900 text-sm">熱酸化 & 薄膜形成工程（CVD / PVD / ALD）</h3>
-            </div>
-            <div class="bg-blue-50 text-blue-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：ウェハの表面に電気を通す膜（金属）や、電気を遮る絶縁膜（酸化膜）をナノ単位で塗布・成膜する！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>装置：</b> 成膜装置・熱処理炉（Applied Materials、東京エレクトロン、日立国際電気）
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 前工程04: リソグラフィ（露光・塗布現像） -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-purple-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-purple-50 border border-purple-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <line x1="25" y1="5" x2="25" y2="15" stroke="#a855f7" stroke-width="2"/>
-              <line x1="50" y1="5" x2="50" y2="15" stroke="#a855f7" stroke-width="2"/>
-              <line x1="75" y1="5" x2="75" y2="15" stroke="#a855f7" stroke-width="2"/>
-              <rect x="20" y="16" width="60" height="4" fill="#312e81"/>
-              <rect x="15" y="24" width="70" height="6" fill="#f43f5e"/>
-              <rect x="15" y="30" width="70" height="6" fill="#60a5fa"/>
-              <rect x="15" y="36" width="70" height="14" fill="#94a3b8"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-purple-600 text-white font-black text-[11px] rounded">前工程 04</span>
-              <h3 class="font-black text-slate-900 text-sm">フォトリソグラフィ工程（塗布 ➔ 露光 ➔ 現像）</h3>
-            </div>
-            <div class="bg-purple-50 text-purple-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：感光剤（レジスト）を塗り、フォトマスクを通して光（EUV/DUV）を当て、回路の影を焼き付ける最重要工程！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>露光装置：</b> ASML（EUV独占）、ニコン、キヤノン<br>
-              <b>コータ・デベロッパ（塗布現像）：</b> 東京エレクトロン（世界シェア9割）
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 前工程05〜07: エッチング・イオン注入・平坦化 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-amber-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <rect x="15" y="36" width="70" height="14" fill="#94a3b8"/>
-              <rect x="25" y="26" width="16" height="10" fill="#f59e0b"/>
-              <rect x="55" y="26" width="16" height="10" fill="#f59e0b"/>
-              <line x1="15" y1="20" x2="85" y2="20" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-amber-600 text-white font-black text-[11px] rounded">前工程 05〜07</span>
-              <h3 class="font-black text-slate-900 text-sm">エッチング ➔ イオン注入 ➔ 平坦化（CMP研磨）</h3>
-            </div>
-            <div class="bg-amber-50 text-amber-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：不要な膜をプラズマガスで削り（エッチング）、電気の通りやすさを変える不純物を打ち込み、凹凸をナノ研磨（CMP）する！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>エッチング装置：</b> Lam Research、東京エレクトロン、Applied Materials<br>
-              <b>CMP研磨装置：</b> 荏原製作所、Applied Materials
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 前工程08: ウェハ検査 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-emerald-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <ellipse cx="50" cy="30" rx="35" ry="14" fill="#cbd5e1" stroke="#475569"/>
-              <line x1="50" y1="10" x2="50" y2="28" stroke="#10b981" stroke-width="2"/>
-              <circle cx="50" cy="28" r="3" fill="#ef4444"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-emerald-600 text-white font-black text-[11px] rounded">前工程 08</span>
-              <h3 class="font-black text-slate-900 text-sm">ウェハテスト・外観検査（Wafer Inspection）</h3>
-            </div>
-            <div class="bg-emerald-50 text-emerald-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：切り分ける前のウェハにプローブ（微細な針）を刺して電気を通し、どのチップが不良品かを判定！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>プローバー装置：</b> 東京精密、東京エレクトロン<br>
-              <b>ICテスター：</b> アドバンテスト、Teradyne
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 後工程01: ダイシング -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-rose-200 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-rose-50 border border-rose-200 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <ellipse cx="50" cy="30" rx="35" ry="14" fill="#fecdd3" stroke="#f43f5e"/>
-              <line x1="25" y1="20" x2="75" y2="40" stroke="#be123c" stroke-width="1.5"/>
-              <line x1="75" y1="20" x2="25" y2="40" stroke="#be123c" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-rose-600 text-white font-black text-[11px] rounded">後工程 01</span>
-              <h3 class="font-black text-slate-900 text-sm">ダイシング工程（ウェハ切断）</h3>
-            </div>
-            <div class="bg-rose-50 text-rose-950 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：完成したウェハを、超極薄ブレードやレーザーで1粒ずつの四角いチップ（ダイ）に切り分ける！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>ダイシングソー・研削装置：</b> DISCO（ディスコ：世界シェア首位）、東京精密
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center text-slate-400 font-black text-sm">↓</div>
-
-        <!-- 後工程02〜04: パッケージング & 最終検査 -->
-        <div class="bg-white rounded-2xl p-4 border-2 border-stone-300 shadow-sm flex flex-col md:flex-row items-center gap-4">
-          <div class="w-full md:w-36 h-20 bg-stone-100 border border-stone-300 rounded-xl flex items-center justify-center p-2 shrink-0">
-            <svg viewBox="0 0 100 60" class="w-24 h-14">
-              <rect x="25" y="24" width="50" height="14" rx="2" fill="#1e293b"/>
-              <rect x="35" y="16" width="30" height="8" fill="#94a3b8"/>
-              <path d="M 38 16 Q 30 10 27 24" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
-              <path d="M 62 16 Q 70 10 73 24" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
-              <line x1="20" y1="31" x2="25" y2="31" stroke="#64748b" stroke-width="2"/>
-              <line x1="75" y1="31" x2="80" y2="31" stroke="#64748b" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="flex-1 space-y-1 text-xs">
-            <div class="flex items-center gap-2">
-              <span class="px-2 py-0.5 bg-stone-800 text-white font-black text-[11px] rounded">後工程 02〜04</span>
-              <h3 class="font-black text-slate-900 text-sm">ボンディング ➔ モールディング ➔ 最終検査</h3>
-            </div>
-            <div class="bg-stone-100 text-stone-900 font-bold p-1.5 rounded text-[11px]">
-              💡 概要・ポイント：髪の毛より細い金線で基板と繋ぎ、黒い樹脂で固めて保護し、最後に過酷な温度・電圧をかけて出荷前テスト！
-            </div>
-            <div class="text-[11px] text-slate-700">
-              <b>後工程受託（OSAT）：</b> ASE、Amkor<br>
-              <b>ハンドラ・最終テスター：</b> セイコーエプソン、アドバンテスト、山一電機
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
 
     <!-- ================= VIEW 3: SENIORITY MAP ================= -->
@@ -3430,7 +4185,7 @@
     };
 
     function switchView(viewName) {
-      const views = ['dept', 'industry', 'semicon', 'seniority'];
+      const views = ['dept', 'industry', 'seniority'];
       views.forEach(v => {
         const el = document.getElementById(`view-${v}`);
         const btn = document.getElementById(`tab-btn-${v}`);
@@ -3468,7 +4223,7 @@
       }
 
       // Update button active states
-      const buttons = ['sier', 'finance', 'saas', 'retail'];
+      const buttons = ['sier', 'finance', 'saas', 'retail', 'datacenter', 'realestate', 'semicon'];
       buttons.forEach(k => {
         const btn = document.getElementById(`ind-btn-${k}`);
         if (!btn) return;
